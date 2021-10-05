@@ -1,0 +1,188 @@
+type StoreConfig {
+    Brand: BrandConfiguration @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\BrandConfiguration") @doc(description: "Brand configuration.")
+}
+
+type BrandConfiguration {
+    general_settings_enable : Boolean
+    general_settings_route : String
+    general_settings_url_prefix : String
+    general_settings_url_suffix : String
+    general_settings_enable_menu : Boolean
+    general_settings_enable_search : Boolean
+
+    product_view_page_enable_brand_info : Boolean
+    product_view_page_brand_layout_listing : Boolean
+    product_view_page_show_brand_text : Boolean
+    product_view_page_show_brand_description : Boolean
+    product_view_page_brand_text : String
+    product_view_page_show_brand_image : Boolean
+    product_view_page_show_brand_name : Boolean
+
+    brand_list_page_layout : String
+    brand_list_page_show_brand_name : Boolean
+    brand_list_page_item_per_page : Int
+    brand_list_page_seo_config_heading : String
+    brand_list_page_page_title : String
+    brand_list_page_meta_description : String
+    brand_list_page_meta_keywords : String
+    brand_list_page_grid_config_heading : String
+    brand_list_page_lg_column_item : String
+    brand_list_page_md_column_item : String
+    brand_list_page_sm_column_item : String
+    brand_list_page_xs_column_item : String
+
+    brand_block_enable : Boolean
+    brand_block_title : String
+    brand_block_pretext : String
+    brand_block_brand_groups : String
+    brand_block_show_brand_name : Boolean
+    brand_block_number_item : Int
+    brand_block_addition_class : String
+    brand_block_carousel_layout : String
+    brand_block_number_item_per_column : String
+    brand_block_mobile_items : String
+    brand_block_tablet_small_items : String
+    brand_block_tablet_items : String
+    brand_block_portrait_items : String
+    brand_block_default_items : String
+    brand_block_large_items : String
+    brand_block_autoplay : Boolean
+    brand_block_autoplay_timeout : Boolean
+    brand_block_autoplay_pauseonhover : Boolean
+    brand_block_item_per_page : Int
+    brand_block_lg_column_item : String
+    brand_block_md_column_item : String
+    brand_block_sm_column_item : String
+    brand_block_xs_column_item : String
+    brand_block_interval : String
+    brand_block_loop : Boolean
+    brand_block_rtl : Boolean
+    brand_block_dots : Boolean
+    brand_block_nav : Boolean
+    brand_block_nav_prev : String
+    brand_block_nav_next : String
+
+    group_page_show_brand_name : Boolean
+    group_page_item_per_page : Int
+    group_page_lg_column_item : String
+    group_page_md_column_item : String
+    group_page_sm_column_item : String
+    group_page_xs_column_item : String
+
+
+}
+type Query {
+
+    lofBrandById (
+        brand_id: Int @doc(description: "Query by id.")
+    ) : Brand @resolver( class: "Lof\\BrandGraphQl\\Model\\Resolver\\Brand") @doc(description: "Query by Get brand by id.")
+
+    lofBrandByProduct(
+        product_id: Int @doc(description: "Product Id."),
+        search: String @doc(description: "Performs a full-text search using the specified key words."),
+        filter: BrandFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ):Brands @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\BrandsByProduct") @doc(description: "The brands query searches for brands that match the criteria specified in the search and filter attributes")
+
+    lofBrandList(
+        search: String @doc(description: "Performs a full-text search using the specified key words."),
+        filter: BrandFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ):Brands @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\Brands") @doc(description: "The brands product query searches for brands that match the criteria specified in the search and filter attributes")
+
+    lofProductByBrand(
+        brand_id: Int! @doc(description: "Brand id")
+        filter: ProductAttributeFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        search: String @doc(description: "Performs a full-text search using the specified key words."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+        sort: ProductAttributeSortInput @doc(description: "Specifies which attributes to sort on, and whether to return the results in ascending or descending order.")
+    ): Products @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\ProductByBrand") @doc(description: "Get Product by Brand")
+
+    lofBrandGroups(
+        search: String @doc(description: "Performs a full-text search using the specified key words."),
+        filter: GroupFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ): Groups @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\Groups") @doc(description: "The brands product query searches for brands that match the criteria specified in the search and filter attributes")
+}
+
+type Brand {
+    brand_id  : Int  @doc(description: "Brand id.")
+    name  : String  @doc(description: "Brand Name.")
+    url_key  : String  @doc(description: "Url Key.")
+    url : String @doc(description: "Url.") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\BrandAttributeSetUrlResolver")
+    description  : String  @doc(description: "Description.")
+    group_id  : Int  @doc(description: "Group Id.")
+    image  : String  @doc(description: "Image.") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\BrandAttributeSetImageResolver")
+    thumbnail  : String  @doc(description: "Thumbnail.") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\BrandAttributeSetThumbnailResolver")
+    page_title  : String  @doc(description: "Page Title.")
+    meta_keywords  : String  @doc(description: "Meta Keywords.")
+    meta_description  : String  @doc(description: "Meta Description.")
+    creation_time  : String  @doc(description: "Creation Time.")
+    update_time  : String  @doc(description: "Update Time.")
+    page_layout  : String  @doc(description: "Page Layout.")
+    layout_update_xml  : String  @doc(description: "Layout Update XML.")
+    status  : Int  @doc(description: "Status.")
+    featured  : Int  @doc(description: "Featured.")
+    position  : Int  @doc(description: "Position.")
+    products  : Products  @doc(description: "Products.") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\BrandAttributeSetProductsResolver")
+    store_id  : [Int]  @doc(description: "Stores.")
+}
+
+
+type Group {
+    group_id  : Int  @doc(description: "Brand id.")
+    name  : String  @doc(description: "Brand Name.")
+    url_key  : String  @doc(description: "Url Key.")
+    position  : Int  @doc(description: "Position.")
+    shown_in_sidebar  : Int  @doc(description: "Show in sidebar.")
+    brands  : Brands  @doc(description: "Products.") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\GroupAttributeSetBrandsResolver")
+    url : String @doc(description: "Url.") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\GroupAttributeSetUrlResolver")
+}
+
+
+type Brands {
+    total_count: Int @doc(description: "The number of brands returned")
+    page_info: SearchResultPageInfo @doc(description: "Page info")
+    items: [Brand] @doc(description: "An array of brands that match the specified search criteria")
+}
+
+type Groups {
+    total_count: Int @doc(description: "The number of groups returned")
+    page_info: SearchResultPageInfo @doc(description: "Page info")
+    items: [Group] @doc(description: "An array of groups that match the specified search criteria")
+}
+
+
+type Product {
+    product  : ProductInterface
+    position  : Int  @doc(description: "Position.")
+}
+
+type Store {
+    store_id: Int @doc(description: "Store Id")
+}
+
+input BrandFilterInput {
+    brand_id: FilterTypeInput @doc(description: "Brand ID")
+    name: FilterTypeInput @doc(description: "Name")
+    status: FilterTypeInput @doc(description: "Status")
+    group_id: FilterTypeInput @doc(description: "Group ID")
+    or: BrandFilterInput @doc(description: "The keyword required to perform a logical OR comparison")
+}
+
+input GroupFilterInput {
+    group_id: FilterTypeInput @doc(description: "Brand group ID")
+    name: FilterTypeInput @doc(description: "Name")
+    status: FilterTypeInput @doc(description: "Status")
+    position: FilterTypeInput @doc(description: "Position")
+    shown_in_sidebar: FilterTypeInput @doc(description: "Shown In Sidebar")
+    or: GroupFilterInput @doc(description: "The keyword required to perform a logical OR comparison")
+}
+
+interface ProductInterface {
+    brands: Brands @doc(description: "Seller who sell this product") @resolver(class: "\\Lof\\BrandGraphQl\\Model\\Resolver\\ProductAttributeSetBrandsResolver")
+}

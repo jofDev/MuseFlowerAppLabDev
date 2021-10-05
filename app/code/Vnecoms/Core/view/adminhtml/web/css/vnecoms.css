@@ -1,0 +1,11 @@
+.admin__menu .submenu .item-vnecoms .submenu-group-title > span{color: #FFF;}
+.admin__menu .submenu .parent.item-vnecoms > .submenu-group-title{background: url(../images/logo.svg) no-repeat scroll left center; padding-left: 30px;}
+.vnecoms-license-field-value{line-height: 3.2rem;}
+body .admin__fieldset > .admin__field.vnecoms-license-field{margin-bottom: 0;}
+.col-license-id{width: 100px;}
+.entry-edit .license-fieldset > .admin__field{margin-bottom: 10px !important;}
+.admin__control-table .ves-col-domain, .admin__control-table .ves-col-delete-domain{padding: 5px;}
+.admin__control-table .ves-col-delete-domain{width: 50px;}
+.admin__control-table .ves-col-delete-domain .ves-act-delete-domain {font-size: 20px;padding: 2px 0;}
+.vnecoms-config .title > strong{visibility: hidden;}
+.config-nav .admin__page-nav._collapsed.vnecoms-config > .admin__page-nav-title.title {background-image: url("../images/logo_vnecoms.svg") !important;background-repeat: no-repeat !important;background-position: 1.5rem center;}

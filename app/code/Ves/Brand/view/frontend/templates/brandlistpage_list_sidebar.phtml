@@ -1,0 +1,32 @@
+<?php
+$_brandCollection = $block->getCollection();
+$show_brand_name = $this->getConfig('brand_list_page/show_brand_name');
+?>
+
+   <section class="section section-brands">
+      	<?php if ( $_brandCollection->count() ){ ?>
+		<?php $total = $_brandCollection->getSize(); ?>
+	        <div class="brand-list section-brands-sidebar">
+	           <div class="row">
+	            <div class="col-lg-10">
+	              <div class="row">
+					<?php foreach ($_brandCollection as $_brand) { ?>
+					     <div class="col-lg-3 col-md-4 col-sm-6">
+		                    <figure><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>">
+		                    	<img class="img-fluid"  alt="<?php echo $_brand->getName(); ?>" src="<?php echo $_brand->getThumbnailUrl(); ?>"/></a>
+		                 </figure>
+		                  </div> 
+	         		<?php } ?>
+	         	   </div>
+	            </div>
+	          </div>
+	      </div>
+	      <?php if($html = $block->getChildHtml('toolbar')){ ?>
+			<div class="brand-toolbar  toolbar toolbar-products">
+				<?php echo $block->getChildHtml('toolbar'); ?>
+			</div>
+		  <?php } ?>
+		<?php }else{ ?>
+		<div class="message info empty"><div><?php echo __('We can\'t find brand matching the selection.'); ?></div></div>
+			<?php } ?>
+	</section>

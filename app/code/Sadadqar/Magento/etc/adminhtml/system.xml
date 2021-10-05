@@ -1,0 +1,59 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="sadadqa" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SadadQAR</label>
+                
+                <field id="active" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>payment/sadadqa/active</config_path>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <config_path>payment/sadadqa/title</config_path>
+                </field>
+               
+                <field id="key_id" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sadad ID</label>
+                    <config_path>payment/sadadqa/key_id</config_path>
+                </field>
+                <field id="key_secret" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Secret Key</label>
+                    <config_path>payment/sadadqa/key_secret</config_path>
+                </field>
+				 <field id="sadad_website" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Website</label>
+                </field>
+				 <field id="sadad_lang" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Language</label>
+                    <source_model>Sadadqar\Magento\Model\Config\Source\SadadLang</source_model>
+                </field>
+				<field id="checkout_type" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Type</label>
+                    <source_model>Sadadqar\Magento\Model\Config\Source\SadadCheckout</source_model>
+                </field>
+				<field id="checkout2type" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Checkout 2.2 type</label>
+					<source_model>Sadadqar\Magento\Model\Config\Source\SadadCheckout2</source_model>
+				</field>
+				<field id="hide_loader" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Loader</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>payment/sadadqa/active</config_path>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>New Order Status</label>
+                    <!-- <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model> -->
+                    <source_model>Applab\OrderMailFix\Model\Config\Source\Status</source_model>
+                    <config_path>payment/sadadqa/order_status</config_path>
+                </field>
+                
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <config_path>payment/sadadqa/sort_order</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

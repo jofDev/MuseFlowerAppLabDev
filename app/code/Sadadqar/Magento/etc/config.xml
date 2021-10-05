@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <sadadqa>
+                <model>Sadadqar\Magento\Model\PaymentMethod</model>
+                <title>Sadad QA</title>
+                <payment_action>authorize</payment_action>
+                <active>0</active>
+                <order_status>payment pending</order_status>
+                <key_id>Sadad ID</key_id>
+                <key_secret>Secret Key</key_secret>
+            </sadadqa>
+        </payment>
+    </default>
+</config>

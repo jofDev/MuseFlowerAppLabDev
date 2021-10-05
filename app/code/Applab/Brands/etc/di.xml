@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Ves\Brand\Block\Brand\View">
+        <plugin name="applabbrandviewblock" type="Applab\Brands\Block\Brand\View"/>
+    </type>>
+    <preference for="Ves\Brand\Controller\Adminhtml\Brand\Save" type="Applab\Brands\Controller\Adminhtml\Brand\Save" />
+    <preference for="Ves\Brand\Controller\Adminhtml\Brand\Delete" type="Applab\Brands\Controller\Adminhtml\Brand\Delete" />
+    <preference for="Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Main" type="Applab\Brands\Block\Adminhtml\Brand\Edit\Tab\Main" />
+</config>

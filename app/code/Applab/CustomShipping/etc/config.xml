@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <custom_shipping>
+                <active>1</active>
+                <allowed_methods>regular_shipping</allowed_methods>
+                <methods>regular_shipping</methods>
+                <sallowspecific>0</sallowspecific>
+                <model>Applab\CustomShipping\Model\CarrierShipping</model>
+                <name>Custom Shipping</name>
+                <title>Custom Shipping</title>
+                <id backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <password backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <min_package_weight>0.1</min_package_weight>
+                <max_package_weight>150</max_package_weight>
+                <handling_type>F</handling_type>
+                <is_online>1</is_online>
+            </custom_shipping>
+        </carriers>
+    </default>
+</config>

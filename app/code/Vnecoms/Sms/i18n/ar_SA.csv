@@ -1,0 +1,171 @@
+Back,رجوع
+Delete Block,Delete Block
+Are you sure you want to do this?,هل انت متأكد من أنك تريد أن تفعل هذا؟
+Save,حفظ
+Order Status,حالة الطلب
+Message,رسالة
+Add Message,أضف رسالة
+Payment Method,طرق الدفع
+Resend,اعادة ارسال
+SMS Notifications,اشعارات الرسائل النصية
+Please enter your mobile number.,الرجاء ادخال رقم الهاتف
+The otp is not valid.,كود التحقق غير صالح
+The mobile number is updated.,تم تحديث رقم الهاتف
+Sms Notification,اشعارات الرسائل النصية
+You deleted the rule.,You deleted the rule.
+We can't find a rule to delete.,We can't find a rule to delete.
+This rule no longer exists.,This rule no longer exists.
+Edit Rule,Edit Rule
+New Rule,New Rule
+Rules,Rules
+Edit Rule #%1,Edit Rule #%1
+Sms Nofitication,اشعارات الرسائل النصية
+Block List,قائمة الحظر
+A total of %1 record(s) have been deleted.,A total of %1 record(s) have been deleted.
+You saved the rule.,You saved the rule.
+Something went wrong while saving the block.,Something went wrong while saving the block.
+Log,السجلات
+You are sending OTP too much times.,لقد قمت بارسال كود التحقق أكثر من مرة
+The OTP code is not valid.,كود التحقق غير صالح
+The OTP code is expired.,انتهت صلاحية كود التحقق
+The mobile number is used by another customer account.,هذا الرقم مستخدم من حساب عميل آخر
+You are using this mobile number already.,أنت تستخدم نفس رقم الجوال
+The mobile number is not associated to any customer account.,رقم الهاتف ليس مرتبطاً بأي حساب عميل
+Your sms gateway model is not valid,Your sms gateway model is not valid
+Your sms gateway config is not valid or not setup correctly.,Your sms gateway config is not valid or not setup correctly.
+The mobile number %1 is blocked by rule #%2,The mobile number %1 is blocked by rule #%2
+"Sms message is not sent: ""%1""","Sms message is not sent: ""%1"""
+Each status can only appear once.,Each status can only appear once.
+Message for payment method %1 is duplicated.,Message for payment method %1 is duplicated.
+Alphanumeric,Alphanumeric
+Alphabetical,Alphabetical
+Numeric,Numeric
+--Auto detected by customer IP--,--Auto detected by customer IP--
+Class %1 does not exist,Class %1 does not exist
+Failed,Failed
+Pending,Pending
+Sent,Sent
+Delivered,Delivered
+Undelivered,Undelivered
+Failed (not enough credit),Failed (not enough credit)
+Edit,Edit
+Notify Customer by SMS,أخطر العميل عن طريق الرسائل القصية
+* Required Fields,* Required Fields
+Settings,Settings
+Go back,Go back
+Click to the button below to verify your phone number,انقر على الزر أدناه للتحقق من رقم هاتفك
+Get OTP,احصل على كود التحقق
+A text message with a %1-digit verification code has been sent to, تم إرسال رسالة نصية بها رمز التحقق المكون من %1 أرقام إلى
+Your OTP,كود التحقق الخاص بك
+Verify,توثيق
+Resend after %1 seconds,إعادة الإرسال بعد %1 ثانية
+The mobile number is not valid.,رقم الهاتف غير صالح.
+Please enter your email address below to receive a password reset link.,يرجى إدخال عنوان بريدك الإلكتروني أدناه لتلقي رابط إعادة تعيين كلمة المرور.
+Email,Email
+or,or
+Mobile,رقم الهاتف
+Reset My Password,Reset My Password
+A text message with a %1-digit verification code has been sent to your phone number!,تم إرسال رسالة نصية برمز التحقق المكون من %1 إلى رقم هاتفك
+Verify Error,خطأ في التوثيق
+Resend OTP,اعادة ارسال كود التحقق
+Send Otp,ارسل كود التحقق
+This is required field.,هذه الخانة مطلوبة
+Error,خطأ
+Please enter a valid mobile number!,الرجاء إدخال رقم جوال صحيح
+Verify Your Mobile Number,التحقق من رقم هاتفك
+Registered Customers,Registered Customers
+"If you have an account, sign in with your email address.","If you have an account, sign in with your email address."
+Password,Password
+Sign In,Sign In
+Forgot Your Password?,Forgot Your Password?
+Mobile Number,رقم الهاتف
+Your mobile number is not verified.,رقم الهاتف غير موثق
+Registered Seller,Registered Seller
+"If you have an account, sign in with your mobile or email address.",إذا كان لديك حساب ، قم بتسجيل الدخول باستخدام هاتفك المحمول أو عنوان بريدك الإلكتروني.
+Checkout as a new customer,Checkout as a new customer
+Creating an account has many benefits:,Creating an account has many benefits:
+See order and shipping status,See order and shipping status
+Track order history,Track order history
+Check out faster,Check out faster
+Create an Account,Create an Account
+Checkout using your account,Checkout using your account
+Email Address,Email Address
+Please verify your phone number first.,يرجى التحقق من رقم هاتفك أولا.
+Resend (%1),اعادة ارسال (%1)
+SMS Notification,اشعارات الرسائل النصية
+SMS Logs,سجلات الرسائل النصية
+Configuration,Configuration
+SMS Gateway Settings,SMS Gateway Settings
+SMS Gateway,SMS Gateway
+Admin Telephone,Admin Telephone
+Duplicated Mobile Number,Duplicated Mobile Number
+Login Using Mobile Number,Login Using Mobile Number
+Verify Customer Mobile Number,Verify Customer Mobile Number
+Enabled,Enabled
+Verify Mobile Number at Registration Form,Verify Mobile Number at Registration Form
+Verify Customer Address Mobile Number,Verify Customer Address Mobile Number
+OTP Configuration,OTP Configuration
+OTP Format,OTP Format
+OTP Length,OTP Length
+OTP message,OTP message
+Use {{var otp_code}} to add the otp code to sms message.,Use {{var otp_code}} to add the otp code to sms message.
+OTP expired after (seconds),OTP expired after (seconds)
+"After the OTP is sent, it will be expired after this period time","After the OTP is sent, it will be expired after this period time"
+Allow customer resends OTP after (seconds),Allow customer resends OTP after (seconds)
+If customer don't get OTP he can resend the sms after this period time.,If customer don't get OTP he can resend the sms after this period time.
+Max times of resending OTP,Max times of resending OTP
+The number of times you allow customer to resend OTP.,The number of times you allow customer to resend OTP.
+OTP block times (seconds),OTP block times (seconds)
+"After the number resend OTP greater than max time of resending OTP, Customer will be blocked in this period time for sending OTP.","After the number resend OTP greater than max time of resending OTP, Customer will be blocked in this period time for sending OTP."
+Mobile Input Settings,Mobile Input Settings
+Allow Country Dropdown,Allow Country Dropdown
+"If this option is set to ""No"", The flag will not be clickable.","If this option is set to ""No"", The flag will not be clickable."
+Initial Country,Initial Country
+The initial country will be selected in default.,The initial country will be selected in default.
+MaxMind GeoIP Database,MaxMind GeoIP Database
+Allowed Countries,Allowed Countries
+Specific Countries,Specific Countries
+Preferred Countries,Preferred Countries
+Send SMS to Admin when,Send SMS to Admin when
+A customer registers an account,A customer registers an account
+"If this option is set to ""Yes"", A sms will be sent to admin when a customer account is created.","If this option is set to ""Yes"", A sms will be sent to admin when a customer account is created."
+A new order is placed,A new order is placed
+"If this option is set to ""Yes"", A sms will be sent to admin when a customer places a new order.","If this option is set to ""Yes"", A sms will be sent to admin when a customer places a new order."
+A customer contact to us,A customer contact to us
+"If this option is set to ""Yes"", A sms will be sent to admin when a customer submit contact form.","If this option is set to ""Yes"", A sms will be sent to admin when a customer submit contact form."
+Customer review a product,Customer review a product
+"If this option is set to ""Yes"", A sms will be sent to admin when customer review a product.","If this option is set to ""Yes"", A sms will be sent to admin when customer review a product."
+Send SMS to Customer when,Send SMS to Customer when
+Mobile Number Priority,Mobile Number Priority
+Customer Mobile Number,Customer Mobile Number
+The number that customer enter at the registration form.,The number that customer enter at the registration form.
+Order Billing Address,Order Billing Address
+The number that customer enter at the billing address.,The number that customer enter at the billing address.
+Order Shipping Address,Order Shipping Address
+The number that customer enter at the shipping address.,The number that customer enter at the shipping address.
+He registers a new account,He registers a new account
+"If this option is set to ""Yes"", A sms will be sent to customer when he creates an account.","If this option is set to ""Yes"", A sms will be sent to customer when he creates an account."
+He places a new order,He places a new order
+"If this option is set to ""Yes"", A sms will be sent to customer when he places a new order.","If this option is set to ""Yes"", A sms will be sent to customer when he places a new order."
+Message By Payment Method,Message By Payment Method
+Order status is changed,Order status is changed
+"If this option is set to ""Yes"", A sms will be sent to customer when status of an order is changed.","If this option is set to ""Yes"", A sms will be sent to customer when status of an order is changed."
+Messages,Messages
+New invoice is created,New invoice is created
+"If this option is set to ""Yes"", A sms will be sent to admin when invoice is created.","If this option is set to ""Yes"", A sms will be sent to admin when invoice is created."
+New shipment is created,New shipment is created
+New credit memo is created,New credit memo is created
+General Information,General Information
+Rule,Rule
+Note,Note
+Add New Rule,Add New Rule
+Delete rule,Delete rule
+Delete selected rules?,Delete selected rules?
+Delete,Delete
+ID#,ID#
+Message Id,Message Id
+Reference Id,Reference Id
+Gateway,Gateway
+Status,Status
+Created At,Created At
+Password forgotten,Password forgotten

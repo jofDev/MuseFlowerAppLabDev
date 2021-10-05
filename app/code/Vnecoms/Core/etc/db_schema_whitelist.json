@@ -1,0 +1,13 @@
+{
+    "ves_core_licensekey": {
+        "column": {
+            "key_id": true,
+            "license_key": true,
+            "license_info": true,
+            "additional_nfo": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

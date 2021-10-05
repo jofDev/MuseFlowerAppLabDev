@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Vnecoms_Sms::notification" title="SMS Notification" translate="title" module="Vnecoms_Sms" sortOrder="5" parent="Magento_Backend::system" resource="Vnecoms_Sms::notification"/>
+        <add id="Vnecoms_Sms::log" title="SMS Logs" translate="title" module="Vnecoms_Sms" action="vsms/log" sortOrder="10" parent="Vnecoms_Sms::notification" resource="Vnecoms_Sms::log"/>
+        <add id="Vnecoms_Sms::block_list" title="Block List" translate="title" module="Vnecoms_Sms" action="vsms/blocklist" sortOrder="15" parent="Vnecoms_Sms::notification" resource="Vnecoms_Sms::block_list"/>
+        <add id="Vnecoms_Sms::configuration" title="Configuration" translate="title" action="adminhtml/system_config/edit/section/vsms" module="Vnecoms_Sms" sortOrder="20" parent="Vnecoms_Sms::notification" resource="Vnecoms_Sms::configuration"/>
+    </menu>
+</config>

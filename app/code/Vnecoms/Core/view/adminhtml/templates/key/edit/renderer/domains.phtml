@@ -1,0 +1,98 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Price\Tier */
+$element = $block->getElement();
+?>
+<?php $_htmlId      = $block->getElement()->getHtmlId() ?>
+<?php $_htmlClass   = $block->getElement()->getClass() ?>
+<?php $_htmlName    = $block->getElement()->getName() ?>
+<?php $_readonly    = $block->getElement()->getReadonly() ?>
+
+
+<div class="field" id="attribute-<?php /* @escapeNotVerified */ echo $_htmlId?>-container">
+    <label class="label"><span><?php /* @escapeNotVerified */ echo $block->getElement()->getLabel() ?></span></label>
+    <div class="control">
+        <table class="admin__control-table tiers_table" id="tiers_table">
+            <thead>
+                <tr>
+                    <th class="ves-col-domain required"><?php /* @escapeNotVerified */ echo __('Domain') ?></th>
+                    <th class="ves-col-delete-domain">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody id="<?php /* @escapeNotVerified */ echo $_htmlId ?>_container"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" class="col-actions-add"><?php echo $block->getAddButtonHtml() ?></td>
+                </tr>
+            </tfoot>
+        </table>
+
+<script>
+require([
+    'mage/template',
+    "prototype",
+    "mage/adminhtml/form"
+], function (mageTemplate) {
+
+//<![CDATA[
+var domainRowTemplate = '<tr>'
+    + '<td class="ves-col-domain">'
+        + '<input class="<?php /* @escapeNotVerified */ echo $_htmlClass ?> admin__control-text domain required-entry" type="text" name="<?php /* @escapeNotVerified */ echo $_htmlName ?>[<%- data.index %>][domain]" value="<%- data.domain %>" id="row_<%- data.index %>_domain" />'
+        + '<p class="note"><span><?php echo __("Domain format: %1 or %2 or %3 or %4. <br />Your current domain is %5<strong></strong>",'<strong>yourdomain.com</strong>', '<strong>www.yourdomain.com</strong>', '<strong>sub1.sub2.yourdomain.com</strong>', '<strong>yourdomain.com:8080</strong>',  '<strong style="color: #eb5202">'.$_SERVER['HTTP_HOST'].'</strong>')?></span></p>'
+    + '</td>'
+    + '<td class="ves-col-delete-domain"><input type="hidden" name="<?php /* @escapeNotVerified */ echo $_htmlName ?>[<%- data.index %>][delete]" class="delete" value="" id="row_<%- data.index %>_delete" />'
+    + '<button title="<?php /* @escapeNotVerified */ echo $block->escapeHtml(__('Delete')); ?>" type="button" class="action-delete ves-act-delete-domain" id="row_<%- data.index %>_delete_button" onclick="return domainsControl.deleteItem(event);">'
+    + '<span><?php /* @escapeNotVerified */ echo __("Delete") ?></span></button></td>'
+    + '</tr>';
+
+var domainsControl = {
+    template: mageTemplate(domainRowTemplate),
+    itemsCount: 0,
+    addItem : function () {
+        var data = {
+            domain: '',
+            index: this.itemsCount++
+        };
+
+        if(arguments.length >= 1) {
+            data.domain      = arguments[0];
+        }
+
+        Element.insert($('<?php /* @escapeNotVerified */ echo $_htmlId ?>_container'), {
+            bottom : this.template({
+                data: data
+            })
+        });
+    },
+    disableElement: function(el) {
+        el.disabled = true;
+        el.addClassName('disabled');
+    },
+    deleteItem: function(event) {
+        var tr = Event.findElement(event, 'tr');
+        if (tr) {
+            Element.select(tr, '.delete').each(function(elem){elem.value='1'});
+            Element.select(tr, ['input', 'select']).each(function(elem){elem.hide()});
+            Element.hide(tr);
+            Element.addClassName(tr, 'no-display template');
+        }
+        return false;
+    }
+};
+<?php foreach ($block->getValues() as $_item): ?>
+domainsControl.addItem('<?php /* @escapeNotVerified */ echo $_item['domain']?>');
+<?php endforeach; ?>
+
+window.domainsControl = domainsControl;
+//]]>
+
+});
+</script>
+    </div>
+</div>

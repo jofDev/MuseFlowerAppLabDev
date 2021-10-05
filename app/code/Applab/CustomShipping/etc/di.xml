@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Applab\CustomShipping\Model\ResourceModel\Area\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">applab_shipping_area</argument>
+            <argument name="resourceModel" xsi:type="string">Applab\CustomShipping\Model\ResourceModel\Area</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="area_listing_data_source" xsi:type="string">Applab\CustomShipping\Model\ResourceModel\Area\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+   <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="applab_customshipping_checkout_city" type="Applab\CustomShipping\Plugin\Checkout\Model\Checkout\LayoutProcessor" sortOrder="100"/>
+    </type>
+    
+    <type name="Magento\Checkout\Block\Checkout\AttributeMerger">
+        <plugin name="customAttributeMerger" type="Applab\CustomShipping\Plugin\AttributeMergerPlugin"/>
+    </type>
+</config>

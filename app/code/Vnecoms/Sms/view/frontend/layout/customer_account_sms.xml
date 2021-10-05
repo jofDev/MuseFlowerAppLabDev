@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="customer_account"/>
+	<head>
+    	<css src="Vnecoms_Sms::css/intlTelInput.css"/>
+        <css src="Vnecoms_Sms::css/styles.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">SMS Notifications</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Vnecoms\Sms\Block\Customer\Account\Sms" name="customer_edit" template="Vnecoms_Sms::customer/account/sms.phtml" cacheable="false">
+                <container name="form.additional.info" as="form_additional_info">
+                	<block class="Vnecoms\Sms\Block\Customer\Account\Mobile" name="vnecoms.customer_mobile" template="Vnecoms_Sms::customer/register/mobile.phtml"/>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+    	<add id="Applab_CustomShipping::shipping" title="Applab" module="Applab_CustomShipping" sortOrder="100" resource="Applab_CustomShipping::shipping"/>
+        <add id="Applab_CustomShipping::area" title="Manage Area" module="Applab_CustomShipping" sortOrder="45" parent="Applab_CustomShipping::shipping" action="customshipping/area/index" resource="Applab_CustomShipping::area"/>
+    </menu>
+</config>

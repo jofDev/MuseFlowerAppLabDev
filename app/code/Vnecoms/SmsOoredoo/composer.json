@@ -1,0 +1,14 @@
+{
+    "name": "vnecoms/module-sms-ooredoo",
+    "description": "Integrate the www.ooredoo.qa to SMS notification extension.",
+    "type": "magento2-module",
+    "version": "2.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Vnecoms\\SmsOoredoo\\": ""
+        }
+    }
+}

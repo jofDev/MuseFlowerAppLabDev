@@ -1,0 +1,26 @@
+{
+    "name": "landofcoder/module-brand-graph-ql",
+    "description": "Magento 2 Brand GraphQl extension",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "landofcoder",
+            "email": "info@landofcoder.com",
+            "homepage": "https://landofcoder.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "version": "1.0.0",
+    "require": {
+        "venustheme/module-brand": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lof\\BrandGraphQl\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

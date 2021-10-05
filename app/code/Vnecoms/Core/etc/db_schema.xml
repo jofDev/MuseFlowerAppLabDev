@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ves_core_licensekey" resource="default" engine="innodb" comment="Vnecoms Core Key">
+        <column xsi:type="int" name="key_id" unsigned="true" nullable="false" identity="true"
+                comment="Key ID"/>
+        <column xsi:type="varchar" name="license_key" nullable="false" length="255" comment="License Key"/>
+        <column xsi:type="text" name="license_info" nullable="false" comment="License Info"/>
+        <column xsi:type="text" name="additional_nfo" nullable="true" comment="Additional info"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="key_id"/>
+        </constraint>
+    </table>
+</schema>

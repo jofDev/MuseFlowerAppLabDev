@@ -1,0 +1,76 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+
+?>
+<div class="block block-customer-login">
+    <div class="block-title">
+        <strong id="block-customer-login-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo __('Registered Seller') ?></strong>
+    </div>
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <form class="form form-login"
+              action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+            <?= $block->getBlockHtml('formkey') ?>
+            <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
+                <div class="field note"><?= $block->escapeHtml(__('If you have an account, sign in with your mobile or email address.')) ?></div>
+                <div class="field email required">
+                    <label class="label" for="email">
+                    <a class="sms-login-field-ctrl selected" href="#<?php echo \Vnecoms\Sms\Helper\Data::LOGIN_TYPE_EMAIL;?>"><span><?= $block->escapeHtml(__('Email')) ?></span></a> 
+                    <?php echo __('or')?> 
+                    <a class="sms-login-field-ctrl"  href="#<?php echo \Vnecoms\Sms\Helper\Data::LOGIN_TYPE_MOBILE;?>"><span><?= $block->escapeHtml(__('Mobile')) ?></span></a>
+                    </label>
+                    <div id="by_mobile" class="control sms-login-field" style="display: none;">
+                        <input name="login[mobile]" value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?> id="mobile-number-input" type="text" class="input-text" title="<?= $block->escapeHtml(__('Mobile')) ?>">
+                        <input type="hidden" name="mobilenumber" id="mobile-number" />
+                        <input type="hidden" name="login_type" id="login_type" value="<?php echo \Vnecoms\Sms\Helper\Data::LOGIN_TYPE_EMAIL;?>"/>
+                    </div>
+                    <div id="by_email" class="control sms-login-field">
+                        <input name="login[username]" value="<?= $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?= $block->escapeHtml(__('Email')) ?>" data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="pass" class="label"><span><?= $block->escapeHtml(__('Password')) ?></span></label>
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?= $block->escapeHtml(__('Password')) ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <?= $block->getChildHtml('form_additional_info') ?>
+                <div class="actions-toolbar">
+                    <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
+                    <div class="secondary"><a class="action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></div>
+                </div>
+                <?php echo $block->getChildHtml('form_after'); ?>
+            </fieldset>
+        </form>
+    </div>
+<?php 
+/** @var \Vnecoms\Sms\Helper\Data $smsHelper*/
+$smsHelper = \Magento\Framework\App\ObjectManager::getInstance()->get('Vnecoms\Sms\Helper\Data');
+?>
+<script type="text/javascript">
+require([
+     'jquery',
+     'jquery/intltellinput',
+     'Vnecoms_Sms/js/utils',
+     'smsLogin',
+     'domReady!'
+], function($){
+	$('.block-customer-login').smsLogin({
+		initialCountry: '<?php echo strtolower($smsHelper->getInitialCountry());?>',
+        allowDropdown: <?php echo strtolower($smsHelper->getAllowCountryDropdown());?>,
+		onlyCountries: <?php echo $smsHelper->isAllowedAllCountries() ? '[]' : json_encode(explode(",", $smsHelper->getAllowedCountries()));?>,
+		preferredCountries:<?php echo json_encode(explode(',', $smsHelper->getPreferredCountries()));?>,
+		geoIpUrl: '<?php echo $smsHelper->getGeoIpDatabase()?$this->getUrl('vsms/geoip'):'https://ipinfo.io';?>'
+	});
+});
+</script>
+</div>

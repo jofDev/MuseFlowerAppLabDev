@@ -1,0 +1,51 @@
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+        
+       	<label class="label" for="sadadqa" style="font-size: 18px;"><span  data-bind="i18n: 'Pay with Sadad'" ></span><span data-bind="text: getTitle()"></span></label>
+		<img src="http://www.sadadpay.com/images/logo.png" width="45%" alt="Sadad QAR" class="payment-icon" />
+    </div>
+
+    <div class="payment-method-content">
+      
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="checkout-agreements-block">
+            <!-- ko foreach: $parent.getRegion('before-place-order') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action primary checkout sadadpay_btnrd"
+                    type="submit"
+					data-bind="
+                        click: placeOrder
+                        "
+                   >
+                    PAY NOW
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.sadadpay_btnrd{
+	background-color: #8d1b3d !important;padding: 5px !important;border: 1px solid #ff6d00 !important;border-radius: 30px !important; width:150% !important;box-shadow: 3px 4px 4px rgba(0,0,0,.32) !important; line-height:20px !important;
+}
+
+@media only screen and (max-width: 766px) {
+	.sadadpay_btnrd{
+		width:40% !important;
+	}
+}
+</style>

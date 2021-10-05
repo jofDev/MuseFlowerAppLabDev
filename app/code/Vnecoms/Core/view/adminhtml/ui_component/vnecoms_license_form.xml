@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">vnecoms_license_form.vnecoms_license_form_data_source</item>
+            <item name="deps" xsi:type="string">vnecoms_license_form.vnecoms_license_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">License Info</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">vnecoms_license_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="save" xsi:type="string">Vnecoms\Core\Block\Adminhtml\Key\Edit\SaveButton</item>
+            <item name="update" xsi:type="string">Vnecoms\Core\Block\Adminhtml\Key\Edit\UpdateButton</item>
+            <item name="reset" xsi:type="string">Vnecoms\Core\Block\Adminhtml\Key\Edit\ResetButton</item>
+            <item name="delete" xsi:type="string">Vnecoms\Core\Block\Adminhtml\Key\Edit\DeleteButton</item>
+        </item>
+    </argument>
+    <dataSource name="vnecoms_license_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Vnecoms\Core\Ui\DataProvider\LicenseDataProvider</argument>
+            <argument name="name" xsi:type="string">vnecoms_license_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">key_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="vnecoms/licenses/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="rule_information">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">License Information</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+                <item name="opened" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <field name="key_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">key_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="license_key">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">License Key</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">license_key</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="extension_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Extension</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">extension_name</item>
+                </item>
+            </argument>
+        </field>
+        <field name="license_type">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">License Type</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">license_type</item>
+                </item>
+            </argument>
+        </field>
+        <field name="created_at">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Created At</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">created_at</item>
+                </item>
+            </argument>
+        </field>
+        <field name="expired_at">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Expiration date</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">expired_at</item>
+                </item>
+            </argument>
+        </field>
+        <field name="status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Status</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string">status</item>
+                </item>
+            </argument>
+        </field>
+        <field name="secure_key">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Registered Secure Key</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="dataScope" xsi:type="string">secure_key</item>
+                    <item name="tooltip" xsi:type="array">
+                        <item name="description" xsi:type="string">
+                        	<![CDATA[The secure key is used to identify your website.]]>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="licensed_extensions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Related Packages</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="elementTmpl" xsi:type="string">Vnecoms_Core/form/element/info</item>
+                    <item name="template" xsi:type="string">Vnecoms_Core/form/field</item>
+                    <item name="dataScope" xsi:type="string">licensed_extensions</item>
+                </item>
+            </argument>
+        </field>
+        <field name="domains">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                	<item name="componentType" xsi:type="string">container</item>
+                	<item name="component" xsi:type="string">Magento_Ui/js/dynamic-rows/dynamic-rows</item>
+                	<item name="template" xsi:type="string">ui/dynamic-rows/templates/default</item>
+                	<item name="renderDefaultRecord" xsi:type="boolean">false</item>
+                	<item name="recordTemplate" xsi:type="string">record</item>
+                	<item name="dndConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="disabled" xsi:type="boolean">false</item>                	
+                    <item name="label" xsi:type="string">Domains</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">license</item>
+                    <item name="dataScope" xsi:type="string"></item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

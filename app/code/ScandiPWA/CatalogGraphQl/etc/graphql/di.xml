@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\GraphQl\Query\Resolver\Argument\AstConverter">
+        <plugin
+            name="condition-applier-plugin"
+            type="ScandiPWA\CatalogGraphQl\Plugin\Resolver\Argument\AstConverterPlugin"
+            sortOrder="1"
+            disabled="false"
+        />
+    </type>
+
+    <type name="Magento\CatalogGraphQl\Model\Resolver\Products">
+        <plugin
+            name="add_search_criteria_to_context"
+            type="ScandiPWA\CatalogGraphQl\Plugin\Resolver\Products"
+            sortOrder="1"
+            disabled="false"
+        />
+    </type>
+
+    <type name="Magento\GraphQl\Model\Query\ContextFactory">
+        <arguments>
+            <argument name="contextParametersProcessors" xsi:type="array">
+                <item name="add_search_criteria_to_context" xsi:type="object">ScandiPWA\CatalogGraphQl\Model\Context\AddSearchCriteriaToContext</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Magento\CatalogGraphQl\Model\Resolver\Product\PriceRange"
+                type="ScandiPWA\CatalogGraphQl\Model\Resolver\Product\PriceRange" />
+
+    <preference for="Magento\CatalogGraphQl\Model\Resolver\Category\Image"
+                type="ScandiPWA\CatalogGraphQl\Model\Resolver\Category\Image" />
+
+    <preference for="Magento\Elasticsearch\Model\ResourceModel\Fulltext\Collection\DefaultFilterStrategyApplyChecker"
+                type="ScandiPWA\CatalogGraphQl\Model\ResourceModel\Fulltext\Collection\DefaultFilterStrategyApplyChecker" />
+
+    <preference for="Magento\CatalogGraphQl\Model\Resolver\Products\Query\Search"
+                type="ScandiPWA\CatalogGraphQl\Model\Resolver\Products\Query\Search"/>
+
+    <preference for="Magento\CatalogGraphQl\Model\Resolver\Products\Query\Filter"
+                type="ScandiPWA\CatalogGraphQl\Model\Resolver\Products\Query\Filter"/>
+
+    <type name="Magento\Framework\App\ResourceConnection">
+        <plugin name="get_catalog_category_product_index_table_name" type="Magento\Catalog\Model\Indexer\Category\Product\Plugin\TableResolver"/>
+        <plugin name="get_catalog_product_price_index_table_name" type="Magento\Catalog\Model\Indexer\Product\Price\Plugin\TableResolver"/>
+    </type>
+
+    <virtualType name="ScandiPWA\CatalogGraphQl\Model\Search\PageSizeProvider" type="Magento\Search\Model\Search\PageSizeProvider">
+        <arguments>
+            <argument name="pageSizeBySearchEngine" xsi:type="array">
+                <item name="elasticsearch" xsi:type="number">100</item>
+                <item name="elasticsearch5" xsi:type="number">100</item>
+                <item name="elasticsearch6" xsi:type="number">100</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Catalog\Model\ResourceModel\Category">
+        <plugin name="category_resource_get_items_use_index"
+                type="ScandiPWA\CatalogGraphQl\Plugin\ResourceModel\Category"/>
+    </type>
+
+    <type name="Magento\Catalog\Model\Category">
+        <plugin name="category_get_items_use_index"
+                type="ScandiPWA\CatalogGraphQl\Plugin\Category"/>
+    </type>
+
+    <type name="Magento\GraphQl\Controller\GraphQl">
+        <plugin name="graphql_init_translations"
+                type="ScandiPWA\CatalogGraphQl\Plugin\InitGraphQlTranslations"/>
+    </type>
+
+    <type name="Magento\Catalog\Model\Indexer\Product\Flat\State">
+        <arguments>
+            <argument name="isAvailable" xsi:type="boolean">true</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product_identities_extender" disabled="true" />
+        <plugin name="bundle" disabled="true" />
+        <plugin name="cms" disabled="true" />
+    </type>
+
+    <preference for="Magento\CatalogGraphQl\Model\Resolver\Category\DataProvider\Breadcrumbs"
+                type="ScandiPWA\CatalogGraphQl\Model\Resolver\Category\DataProvider\Breadcrumbs" />
+
+    <preference for="Magento\BundleGraphQl\Model\Resolver\Options\Label"
+                type="ScandiPWA\CatalogGraphQl\Model\Resolver\Product\BundleLabel" />
+</config>

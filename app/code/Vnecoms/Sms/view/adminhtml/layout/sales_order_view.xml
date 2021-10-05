@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+			<block class="Vnecoms\Sms\Block\Adminhtml\Order\View\History" name="sms.order_history" template="Vnecoms_Sms::order/view/history.phtml" after="-"/>
+        </referenceContainer>
+        <referenceContainer name="extra_customer_info">
+            <block class="Vnecoms\Sms\Block\Adminhtml\Order\View\Mobile" name="sms.customer_mobile" template="Vnecoms_Sms::order/view/mobile.phtml" />
+        </referenceContainer>
+    </body>
+</page>

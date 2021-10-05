@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.license.grid.container">
+            <block class="Magento\Backend\Block\Widget\Grid" name="license.grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">license_grid</argument>
+                    <argument name="dataSource" xsi:type="object">Vnecoms\Core\Model\ResourceModel\Key\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">name</argument>
+                    <argument name="default_dir" xsi:type="string">ASC</argument>
+                    <argument name="save_parameters_in_session" xsi:type="string">1</argument>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="license.columnSet" as="grid.columnSet">
+                    <arguments>
+                        <argument name="rowUrl" xsi:type="array">
+                            <item name="path" xsi:type="string">vnecoms/*/edit</item>
+                            <item name="extraParamsTemplate" xsi:type="array">
+                                <item name="id" xsi:type="string">getKeyId</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="key_id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">ID</argument>
+                            <argument name="index" xsi:type="string">key_id</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-license-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-license-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="license_key">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">License Key</argument>
+                            <argument name="index" xsi:type="string">license_key</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-license-key</argument>
+                            <argument name="header_css_class" xsi:type="string">col-license-key</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="license_info">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">License Info</argument>
+                            <argument name="index" xsi:type="string">license_info</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="filter" xsi:type="boolean">false</argument>
+                            <argument name="sortable" xsi:type="boolean">false</argument>
+                            <argument name="renderer" xsi:type="string">Vnecoms\Core\Block\Adminhtml\Key\Grid\Renderer\LicenseInfo</argument>
+                            <argument name="column_css_class" xsi:type="string">col-license-info</argument>
+                            <argument name="header_css_class" xsi:type="string">col-license-info</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

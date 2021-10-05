@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="smsFormData" xsi:type="object">Vnecoms\Sms\Block\Checkout\LayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\OneStepCheckout\Model\Layout\LayoutProcessorProvider">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="smsFormData" xsi:type="string">Vnecoms\Sms\Block\Checkout\Aheadworks\LayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Customer\Block\Account\AuthenticationPopup">
+        <plugin name="vnecoms_sms_mobile_login" type="Vnecoms\Sms\Plugin\AuthenticationPopup"/>
+    </type>
+</config>

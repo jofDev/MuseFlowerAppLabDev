@@ -1,2 +1,1 @@
-# MuseFlowerAppLabDev
-MuseFlowerAppLabDev Repository
+# MuseFlowerShop

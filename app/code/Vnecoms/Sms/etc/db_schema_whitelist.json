@@ -1,0 +1,54 @@
+{
+    "ves_sms_message": {
+        "column": {
+            "message_id": true,
+            "sid": true,
+            "gateway": true,
+            "message": true,
+            "to_mobile": true,
+            "note": true,
+            "additional_data": true,
+            "status": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ves_sms_customer_mobile": {
+        "column": {
+            "mobile_id": true,
+            "customer_id": true,
+            "mobile": true,
+            "otp": true,
+            "otp_created_at": true,
+            "status": true,
+            "created_at": true,
+            "additional_data": true
+        },
+        "constraint": {
+            "VES_SMS_CUSTOMER_MOBILE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "ves_sms_block_list": {
+        "column": {
+            "rule_id": true,
+            "rule": true,
+            "note": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "customer_entity": {
+        "column": {
+            "mobilenumber": true
+        }
+    },
+    "quote": {
+        "column": {
+            "otp_verified": true
+        }
+    }
+}

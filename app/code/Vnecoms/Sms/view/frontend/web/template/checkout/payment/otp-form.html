@@ -1,0 +1,12 @@
+<div class="sms-otp-dialog" id="sms-otp-dialog" data-bind="afterRender: initDialog.bind($data)">
+    <div class="sms-otp-step-1" data-bind="css: {show: !sentOtp()}">
+        <p data-bind="i18n: 'Click to the button below to verify your phone number'"> <span class="sms-otp-mobile"></span></p>
+        <button class="action primary send-otp-btn" id="send-otp-btn" data-bind="click: getOtp.bind($data, 0), enable: !processing()"><span data-bind="i18n: 'Get OTP'"></span></button>
+    </div>
+    <div class="sms-otp-step-2"  data-bind="css: {show: sentOtp()}">
+        <p data-bind="text: $t('A text message with a %1-digit verification code has been sent to %2').replace('%1',otpLength).replace('%2', getMobileNumber())"> <span id="sms-otp-dialog-mobile" class="sms-otp-mobile"></span></p>
+        <input type="text" name="sms_otp_code" id="sms-otp-input" class="input-text required-entry" data-bind="placeholder:$t('Your OTP'), value: otp" />
+        <button class="action primary send-otp-btn" id="verify-otp-btn" data-bind="click: verifyOtp.bind($data), enable: !processing()"><span data-bind="i18n: 'Verify'"></span></button>
+        <a href="#" class="resend-otp-btn" id="resend-otp-btn" data-bind="click: resendOtp.bind($data), text: resendBtnLabel, css: {'running': countNum() != false || processing()}"></a>
+    </div>
+</div>

@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="vsms" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SMS Notification</label>
+            <tab>vnecoms</tab>
+            <resource>Vnecoms_Sms::configuration</resource>
+            <group id="settings" translate="label tooltip" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<label>Settings</label>
+            	<group id="sms_gateway" translate="label" showInDefault="1" showInWebsite="1" sortOrder="10">
+	            	<label>SMS Gateway Settings</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="gateway" translate="label tooltip" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>SMS Gateway</label>
+	                    <source_model>Vnecoms\Sms\Model\Config\Source\Gateways</source_model>
+	                    <config_path>vsms/settings/gateway</config_path>
+	                </field>
+            	</group>
+            	
+                <field id="admin_telephone" translate="label tooltip" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Admin Telephone</label>
+                    <comment>All admin notifications will be sent to these phone numbers. Separate numbers by comma (,)</comment>
+                </field>
+                <field id="duplicated_mobile" translate="label tooltip" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Duplicated Mobile Number</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>A phone number can be used for multiple customer account?</comment>
+                </field>
+                <field id="mobile_login" translate="label tooltip" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Login Using Mobile Number</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Customer can use the mobile number to login insteads of email</comment>
+                    <depends>
+                        <field id="duplicated_mobile">0</field>
+                    </depends>
+                </field>
+                <!-- 
+                <field id="validator" translate="label tooltip" type="select" sortOrder="505" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Mobile Validator</label>
+                    <source_model>Vnecoms\Sms\Model\Config\Source\MobileValidator</source_model>
+                    <comment>This selected validator will be used to validate the phone number.</comment>
+                </field>
+                 -->
+            </group>
+            <group id="customer_verify" translate="label" showInDefault="1" showInWebsite="1" sortOrder="20" showInStore="1">
+				<label>Verification Settings</label>
+                <field id="verify_customer_mobile" translate="label tooltip" type="select" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Verify Customer Mobile Number</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>vsms/settings/verify_customer_mobile</config_path>
+                    <comment><![CDATA[Customer's mobile number need to be verified before it can be received notification sms messages.<br />If you set this to NO, system will send notification sms to mobile numbers event they are not verified.]]></comment>
+                </field>
+                <field id="verify_customer_mobile_register" translate="label tooltip" type="select" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Verify Mobile Number at Registration Form</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>vsms/settings/verify_customer_mobile_register</config_path>
+                    <depends>
+                        <field id="verify_customer_mobile">1</field>
+                    </depends>
+                    <comment>The mobile number will need to be verified before customer can create an account.</comment>
+                </field>
+                <field id="enable_otp_login" translate="label tooltip" type="select" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable OTP at login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>vsms/settings/enable_otp_login</config_path>
+                    <comment>2FA for customer. When customer login, an OTP will be sent to his mobile number. One customer verify the OTP he will be able to login.</comment>
+                </field>
+                <field id="verify_customer_address_mobile" translate="label tooltip" type="select" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable OTP at checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>vsms/settings/verify_address_mobile</config_path>
+                    <comment>When customer click to place order button, the OTP verification will be shown up. Customer need to enter OTP to place order.</comment>
+                </field>
+            </group>
+            <group id="otp_configuration" translate="label" showInDefault="1" showInWebsite="1" sortOrder="20" showInStore="1">
+				<label>OTP Configuration</label>
+				<field id="otp_format" translate="label comment" type="select" sortOrder="520" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OTP Format</label>
+                    <source_model>Vnecoms\Sms\Model\Config\Source\CodeFormat</source_model>
+                    <config_path>vsms/settings/otp_format</config_path>
+                </field>
+                <field id="otp_length" translate="label comment" type="text" sortOrder="530" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OTP Length</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <config_path>vsms/settings/otp_length</config_path>
+                </field>
+                <field id="otp_message" translate="label comment" type="textarea" sortOrder="540" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OTP message</label>
+                    <frontend_class>required-entry</frontend_class>
+                    <config_path>vsms/settings/otp_message</config_path>
+                    <comment><![CDATA[Use {{var otp_code}} to add the otp code to sms message.]]></comment>
+                </field>
+                <field id="otp_expired" translate="label comment" type="text" sortOrder="550" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OTP expired after (seconds)</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <config_path>vsms/settings/otp_expired</config_path>
+                    <comment>After the OTP is sent, it will be expired after this period time</comment>
+                </field>
+                <field id="otp_resend" translate="label comment" type="text" sortOrder="550" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Allow customer resends OTP after (seconds)</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <config_path>vsms/settings/otp_resend</config_path>
+                    <comment>If customer don't get OTP he can resend the sms after this period time.</comment>
+                </field>
+                <field id="otp_max_resending_times" translate="label comment" type="text" sortOrder="550" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Max times of resending OTP</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <config_path>vsms/settings/otp_max_resending_times</config_path>
+                    <comment>The number of times you allow customer to resend OTP.</comment>
+                </field>
+                <field id="otp_resend_block_time" translate="label comment" type="text" sortOrder="550" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OTP block times (seconds)</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <config_path>vsms/settings/otp_resend_block_time</config_path>
+                    <comment>After the number resend OTP greater than max time of resending OTP, Customer will be blocked in this period time for sending OTP.</comment>
+                </field>
+			</group>
+            <group id="input_settings" translate="label" showInDefault="1" showInWebsite="1" sortOrder="30" showInStore="1">
+				<label>Mobile Input Settings</label>
+				<field id="allow_country_dropdown" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+					<label>Allow Country Dropdown</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<tooltip>If this option is set to "No", The flag will not be clickable.</tooltip>
+					<config_path>vsms/input_settings/allow_country_dropdown</config_path>
+				</field>
+				<field id="default_country" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Initial Country</label>
+                    <source_model>Vnecoms\Sms\Model\Config\Source\Country</source_model>
+                    <tooltip>The initial country will be selected in default.</tooltip>
+                </field>
+                <field id="geoip_database" translate="label tooltip" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>MaxMind GeoIP Database</label>
+                    <depends>
+                        <field id="default_country">auto</field>
+                    </depends>
+                    <comment><![CDATA[Download the <strong>MaxMind GeoLite2 Country</strong> database from <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/">this page</a>, upload to your server and place the path to the database file here. The database file has the name like this <strong>GeoLite2-Country.mmdb</strong>]]></comment>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Allowed Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                    <comment>Only selected countries will be displayed on country selector.</comment>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                
+                <field id="preferred_countries" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Preferred Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment>These selected countries will be displayed on the top of country selector.</comment>
+                </field>
+			</group>
+            <group id="admin" translate="label" showInDefault="1" showInWebsite="1" sortOrder="40" showInStore="1">
+            	<label>Send SMS to Admin when</label>
+            	<group id="customer_register" translate="label" showInDefault="1" showInWebsite="1" sortOrder="10" showInStore="1">
+	            	<label>A customer registers an account</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="customer_register_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to admin when a customer account is created.</tooltip>
+	                    <config_path>vsms/admin/customer_register_enabled</config_path>
+	                </field>
+	                <field id="customer_register_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/admin/customer_register_message</config_path>
+	                    <depends>
+	                        <field id="customer_register_enabled">1</field>
+	                    </depends>
+	                </field>
+	            </group>
+	            <group id="new_order" translate="label" showInDefault="1" showInWebsite="1" sortOrder="10" showInStore="1">
+	            	<label>A new order is placed</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="new_order_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to admin when a customer places a new order.</tooltip>
+	                    <config_path>vsms/admin/new_order_enabled</config_path>
+	                </field>
+	                <field id="new_order_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/admin/new_order_message</config_path>
+	                    <depends>
+	                        <field id="new_order_enabled">1</field>
+	                    </depends>
+	                </field>
+	            </group>
+				<group id="new_contact_massage" translate="label" showInDefault="1" showInWebsite="1" sortOrder="10" showInStore="1">
+					<label>A customer contact to us</label>
+					<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+					<field id="new_contact_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+						<label>Enabled</label>
+						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+						<tooltip>If this option is set to "Yes", A sms will be sent to admin when a customer submit contact form.</tooltip>
+						<config_path>vsms/admin/new_contact_enabled</config_path>
+					</field>
+					<field id="new_contact_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Message</label>
+						<config_path>vsms/admin/new_contact_message</config_path>
+						<depends>
+							<field id="new_contact_enabled">1</field>
+						</depends>
+					</field>
+				</group>
+
+				<group id="new_review_message" translate="label" showInDefault="1" showInWebsite="1" sortOrder="10" showInStore="1">
+					<label>Customer review a product</label>
+					<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+					<field id="new_review_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+						<label>Enabled</label>
+						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+						<tooltip>If this option is set to "Yes", A sms will be sent to admin when customer review a product.</tooltip>
+						<config_path>vsms/admin/new_review_enabled</config_path>
+					</field>
+					<field id="new_review_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Message</label>
+						<config_path>vsms/admin/new_review_message</config_path>
+						<depends>
+							<field id="new_review_enabled">1</field>
+						</depends>
+					</field>
+				</group>
+            </group>
+
+            <group id="customer" translate="label" showInDefault="1" showInWebsite="1" sortOrder="50" showInStore="1">
+            	<label>Send SMS to Customer when</label>
+            	<group id="mobile_source" translate="label" showInDefault="1" showInWebsite="1" sortOrder="5" showInStore="1">
+	            	<label>Mobile Number Priority</label>
+	            	<comment><![CDATA[The mobile number will be getting from following sources. Source with higher priority will be chosen first if the mobile number is empty the lower priority source will be chosen.<br />Make sure you set different priority value for each source.]]></comment>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="mobile_source_customer" translate="label tooltip" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Customer Mobile Number</label>
+	                    <frontend_class>required-entry validate-number</frontend_class>
+	                    <tooltip>The number that customer enter at the registration form.</tooltip>
+	                    <config_path>vsms/customer/mobile_source_customer</config_path>
+	                </field>
+	                <field id="mobile_source_billing" translate="label tooltip" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Order Billing Address</label>
+	                    <frontend_class>required-entry validate-number</frontend_class>
+	                    <tooltip>The number that customer enter at the billing address.</tooltip>
+	                    <config_path>vsms/customer/mobile_source_billing</config_path>
+	                </field>
+	                <field id="mobile_source_shipping" translate="label tooltip" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Order Shipping Address</label>
+	                    <frontend_class>required-entry validate-number</frontend_class>
+	                    <tooltip>The number that customer enter at the shipping address.</tooltip>
+	                    <config_path>vsms/customer/mobile_source_shipping</config_path>
+	                </field>
+	            </group>
+            	<group id="customer_register" translate="label" showInDefault="1" showInWebsite="1" sortOrder="10" showInStore="1">
+	            	<label>He registers a new account</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="customer_register_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to customer when he creates an account.</tooltip>
+	                    <config_path>vsms/customer/customer_register_enabled</config_path>
+	                </field>
+	                <field id="customer_register_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/customer/customer_register_message</config_path>
+	                    <depends>
+	                        <field id="customer_register_enabled">1</field>
+	                    </depends>
+	                </field>
+	            </group>
+	            <group id="new_order" translate="label" showInDefault="1" showInWebsite="1" sortOrder="20" showInStore="1">
+	            	<label>He places a new order</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="new_order_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to customer when he places a new order.</tooltip>
+	                    <config_path>vsms/customer/new_order_enabled</config_path>
+	                </field>
+	                <field id="new_order_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/customer/new_order_message</config_path>
+	                    <depends>
+	                        <field id="new_order_enabled">1</field>
+	                    </depends>
+	                </field>
+	                <field id="new_order_by_payment_method" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Message By Payment Method</label>
+						<config_path>vsms/customer/new_order_by_payment_method</config_path>
+						<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\NewOrderByPayment</frontend_model>
+						<backend_model>Vnecoms\Sms\Model\Config\Backend\NewOrderByPayment</backend_model>
+						<comment>The above "Enabled" option is not required for this option.</comment>
+					</field>
+	            </group>
+	            <group id="order_status_changed" translate="label" showInDefault="1" showInWebsite="1" sortOrder="30" showInStore="1">
+	            	<label>Order status is changed</label>
+					<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+					<field id="order_status_changed_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+						<label>Enabled</label>
+						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+						<tooltip>If this option is set to "Yes", A sms will be sent to customer when status of an order is changed.</tooltip>
+						<config_path>vsms/customer/order_status_changed_enabled</config_path>
+					</field>
+					<field id="order_status_changed_message" translate="label" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Messages</label>
+						<config_path>vsms/customer/order_status_changed_message</config_path>
+						<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\MessageOrderStatus</frontend_model>
+						<backend_model>Vnecoms\Sms\Model\Config\Backend\Columns</backend_model>
+						<depends>
+							<field id="order_status_changed_enabled">1</field>
+						</depends>
+					</field>
+	            </group>
+	            <group id="new_invoice" translate="label" showInDefault="1" showInWebsite="1" sortOrder="40" showInStore="1">
+	            	<label>New invoice is created</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="new_invoice_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to admin when invoice is created.</tooltip>
+	                    <config_path>vsms/customer/new_invoice_enabled</config_path>
+	                </field>
+	                <field id="new_invoice_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/customer/new_invoice_message</config_path>
+	                    <depends>
+	                        <field id="new_invoice_enabled">1</field>
+	                    </depends>
+	                </field>
+	            </group>
+	            <group id="new_shipment" translate="label" showInDefault="1" showInWebsite="1" sortOrder="50" showInStore="1">
+	            	<label>New shipment is created</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="new_shipment_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to admin when invoice is created.</tooltip>
+	                    <config_path>vsms/customer/new_shipment_enabled</config_path>
+	                </field>
+	                <field id="new_shipment_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/customer/new_shipment_message</config_path>
+	                    <depends>
+	                        <field id="new_shipment_enabled">1</field>
+	                    </depends>
+	                    <comment><![CDATA[You can use {{var tracking_code}} to display tracking code.]]></comment>
+	                </field>
+                    <field id="new_shipment_by_shipping_method" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Message By Shipping Method</label>
+                        <config_path>vsms/customer/new_shipment_by_shipping_method</config_path>
+                        <frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\NewShipmentByShipping</frontend_model>
+                        <backend_model>Vnecoms\Sms\Model\Config\Backend\NewShipmentByShipping</backend_model>
+                        <comment>The above "Enabled" option is not required for this option.</comment>
+                    </field>
+	            </group>
+	            <group id="new_creditmemo" translate="label" showInDefault="1" showInWebsite="1" sortOrder="60" showInStore="1">
+	            	<label>New credit memo is created</label>
+	            	<frontend_model>Vnecoms\Sms\Block\Adminhtml\System\Config\Fieldset</frontend_model>
+	            	<field id="new_creditmemo_enabled" translate="label tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+	                    <label>Enabled</label>
+	                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+	                    <tooltip>If this option is set to "Yes", A sms will be sent to admin when invoice is created.</tooltip>
+	                    <config_path>vsms/customer/new_creditmemo_enabled</config_path>
+	                </field>
+	                <field id="new_creditmemo_message" translate="label tooltip" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+	                    <label>Message</label>
+	                    <config_path>vsms/customer/new_creditmemo_message</config_path>
+	                    <depends>
+	                        <field id="new_creditmemo_enabled">1</field>
+	                    </depends>
+	                </field>
+	            </group>
+            </group>
+        </section>
+    </system>
+</config>

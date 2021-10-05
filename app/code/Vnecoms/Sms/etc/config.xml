@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <vsms>
+        	<settings>
+        		<verify_customer_mobile>1</verify_customer_mobile>
+        		<verify_customer_mobile_register>1</verify_customer_mobile_register>
+                <enable_otp_login>1</enable_otp_login>
+        		<otp_format>num</otp_format>
+        		<otp_length>6</otp_length>
+        		<otp_message><![CDATA[{{var otp_code}} is your OTP code.]]></otp_message>
+        		<otp_expired>300</otp_expired>
+        		<otp_resend>30</otp_resend>
+        		<otp_max_resending_times>3</otp_max_resending_times>
+        		<otp_resend_block_time>600</otp_resend_block_time>
+        		<duplicated_mobile>0</duplicated_mobile>
+        		<mobile_login>1</mobile_login>
+        		<verify_address_mobile>1</verify_address_mobile>
+        	</settings>
+        	<input_settings>
+				<allow_country_dropdown>1</allow_country_dropdown>
+        		<default_country>auto</default_country>
+        		<allowspecific>0</allowspecific>
+        		<specificcountry></specificcountry>
+        		<preferred_countries>US,VN</preferred_countries>
+        	</input_settings>
+        	<admin>
+        		<!-- Admin config -->
+        		<customer_register_enabled>1</customer_register_enabled>
+        		<customer_register_message><![CDATA[Hi,
+A customer "{{var customer.email}}" registered an account on your website.]]></customer_register_message>
+
+				<new_order_enabled>1</new_order_enabled>
+				<new_order_message><![CDATA[Hi,
+A new order #{{var order.increment_id}} with total amount {{var order_total}} has been placed.]]></new_order_message>
+
+				<new_contact_enabled>0</new_contact_enabled>
+				<new_contact_enabled>1</new_contact_enabled>
+				<new_contact_message><![CDATA[Hi,
+A contact :
+name: "{{var contact_name}}"
+email: "{{var contact_email}}"
+phone: "{{var contact_telephone}}"
+description: "{{var comment}}"
+ has been sent to your website .]]></new_contact_message>
+
+				<new_review_enabled>1</new_review_enabled>
+				<new_review_message><![CDATA[Hi,
+A review is posted for product #{{var product.name}}:
+nickname: "{{var nickname}}"
+summary: "{{var title}}"
+review: "{{var detail}}".]]></new_review_message>
+        	</admin>
+        	
+        	<customer>
+        		<customer_register_enabled>1</customer_register_enabled>
+        		<customer_register_message><![CDATA[Hi {{var customer.firstname}},
+Welcome to {{config path="general/store_information/name"}}.]]></customer_register_message>
+				<new_order_enabled>1</new_order_enabled>
+				<new_order_message><![CDATA[Hi {{var customer.firstname}},
+Your order #{{var order.increment_id}} with total amount {{var order_total}} has been placed.]]></new_order_message>
+				<order_status_changed_enabled>1</order_status_changed_enabled>
+				<order_status_changed_message><![CDATA[{"_1547138946063_63":{"order_status":"processing","message":"Hi {{var customer.firstname}},\r\nWe are processing your order #{{var order.increment_id}}."},"_1547138962223_223":{"order_status":"complete","message":"Hi {{var customer.firstname}},\r\nyour order #{{var order.increment_id}} is completed."},"_1547138977880_880":{"order_status":"holded","message":"Hi {{var customer.firstname}},\r\nyour order #{{var order.increment_id}} is on hold."},"_1547139857592_592":{"order_status":"canceled","message":"Hi {{var customer.firstname}},\r\nyour order #{{var order.increment_id}} is cancelled."},"_1547140307713_713":{"order_status":"closed","message":"Hi {{var customer.firstname}},\r\nyour order #{{var order.increment_id}} is refunded."}}]]></order_status_changed_message>
+				<new_invoice_enabled>1</new_invoice_enabled>
+				<new_invoice_message><![CDATA[Hi {{var customer.firstname}},
+An invoice #{{var invoice.increment_id}} has been created.]]></new_invoice_message>
+				<new_shipment_enabled>1</new_shipment_enabled>
+				<new_shipment_message><![CDATA[Hi {{var customer.firstname}},
+A shipment #{{var shipment.increment_id}} has been created.{{if tracking_code}} Your tracking code: {{var tracking_code}}{{/if}}]]></new_shipment_message>
+				<new_creditmemo_enabled>1</new_creditmemo_enabled>
+				<new_creditmemo_message><![CDATA[Hi {{var customer.firstname}},
+A credit memo #{{var creditmemo.increment_id}} has been created.]]></new_creditmemo_message>
+				<mobile_source_customer>1</mobile_source_customer>
+				<mobile_source_billing>2</mobile_source_billing>
+				<mobile_source_shipping>3</mobile_source_shipping>
+        	</customer>
+        </vsms>
+    </default>
+</config>

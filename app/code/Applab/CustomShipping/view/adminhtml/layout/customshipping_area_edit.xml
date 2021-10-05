@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Applab\CustomShipping\Block\Adminhtml\Area\Edit" name="area_edit_page"/>
+        </referenceContainer>
+         <referenceContainer name="left">
+            <block class="Applab\CustomShipping\Block\Adminhtml\Area\Edit\Tabs" name="area_edit_tabs">
+                <block class="Applab\CustomShipping\Block\Adminhtml\Area\Edit\Tab\Area" name="area_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">area_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
