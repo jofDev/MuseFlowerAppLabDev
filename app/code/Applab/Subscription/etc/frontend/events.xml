@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="checkout_onepage_controller_success_action">
+	    <observer name="applab_multishipping" instance="Applab\Subscription\Observer\MultiShip" />
+	</event>
+    <event name="controller_action_predispatch_checkout_cart_add"> 
+      	<observer name="before_add_to_cart" instance="Applab\Subscription\Observer\AddToCart" /> 
+    </event>
+</config> 

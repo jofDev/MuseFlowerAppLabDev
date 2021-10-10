@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="applab_eventspro" resource="default" comment="Table to save all events">
+       <column xsi:type="int" name="id" padding="10" identity="true" unsigned="true" nullable="false" comment="Id"/>
+       <column xsi:type="varchar" name="event_name" nullable="true" length="255" comment="event name"/>
+       <column xsi:type="longtext" name="event_desc" nullable="true" comment="event desc"/>
+       <column xsi:type="varchar" name="event_banner" nullable="true" length="255" comment="event banner"/>
+       <column xsi:type="varchar" name="event_name_ar" nullable="true" length="255" comment="event name"/>
+       <column xsi:type="longtext" name="event_desc_ar" nullable="true" comment="event desc"/>
+       <column xsi:type="varchar" name="event_banner_ar" nullable="true" length="255" comment="event banner"/>
+       <column xsi:type="int" name="status" nullable="false" comment="status"/>
+       <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" comment="Created At"/>
+       <constraint xsi:type="primary" referenceId="PRIMARY">
+           <column name="id"/>
+       </constraint>
+   </table>
+</schema>
