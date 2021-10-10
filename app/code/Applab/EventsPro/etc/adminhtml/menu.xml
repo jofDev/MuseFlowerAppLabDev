@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu> 
+		<add id="Applab_EventsPro::eventspro" title="Events" module="Applab_EventsPro" sortOrder="10" resource="Applab_EventsPro::eventspro" />  
+		<add id="Applab_EventsPro::events" title="Events List" module="Applab_EventsPro" sortOrder="5" resource="Applab_EventsPro::events" parent="Applab_EventsPro::eventspro" /> 
+		<add id="Applab_EventsPro::events_list" title="Events List" module="Applab_EventsPro" sortOrder="20" parent="Applab_EventsPro::events" action="eventspro/index/index" resource="Applab_EventsPro::events_list"/>
+		<add id="Applab_EventsPro::add_event" title="Add Event" module="Applab_EventsPro" sortOrder="20" parent="Applab_EventsPro::events" action="eventspro/index/add" resource="Applab_EventsPro::add_event"/>
+	</menu>
+</config>

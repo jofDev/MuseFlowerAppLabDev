@@ -1,0 +1,15 @@
+type Query {
+    getEventsData(id: Int! @doc(description: "Specify the id of the event Or set 0 to get all events.")): [getEventsDataOutPut] @resolver( class: "Applab\\EventsPro\\Model\\Resolver\\EventData") @doc(description: "Get Events")
+}
+
+type getEventsDataOutPut {
+    id : Int  @doc(description: "Id"),
+    event_name : String  @doc(description: "Event Name String"),
+    event_name_ar : String  @doc(description: "Event Name Arabic String"),
+    event_desc : String  @doc(description: "Event desc String"),
+    event_desc_ar : String  @doc(description: "Event desc Arabic String"),
+    event_banner : String  @doc(description: "Event banner String"),
+    event_banner_ar : String  @doc(description: "Event banner arabic String"),
+    status : Int  @doc(description: "Status"),
+    created_at : String  @doc(description: "Update Date")
+}

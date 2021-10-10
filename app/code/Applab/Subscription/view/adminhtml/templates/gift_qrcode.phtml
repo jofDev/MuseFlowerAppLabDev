@@ -1,0 +1,55 @@
+<?php if($block->getItem()->getData('product_id') && $block->getItem()->getData('gift_qrcode')){ ?>
+
+<?php 
+$objectManager  = \Magento\Framework\App\ObjectManager::getInstance();
+$product 		= $objectManager->create('Magento\Catalog\Model\Product')->setStoreId($block->getItem()->getData('store_id'))->load($block->getItem()->getData('product_id')); 
+?>
+	<button id="modal-btn">Print</button>
+	<div id="modal-content">
+    <div class="modal-inner-content">
+        <h2><?php echo $block->getItem()->getData('name').$block->getItem()->getData('store_id') ?></h2>
+        <div>
+        	<?php echo $product->getDescription(); ?>
+        </div>
+  		<form action="<?php echo $this->getUrl('qrcode/index/index')?>"  method="post">
+			<input name="form_key" type="hidden" value="<?php /* @escapeNotVerified */ echo $block->getFormKey(); ?>" />
+			<input type="hidden" name="order_id" 	value="<?php echo $block->getItem()->getData('order_id') ?>" />
+			<input type="hidden" name="product_id" 	value="<?php echo $block->getItem()->getData('product_id') ?>" />
+			<input type="hidden" name="gift_qrcode" value="<?php echo $block->getItem()->getData('gift_qrcode') ?>"/><br><br>
+			<button type="submit" id="print-submit">Print</button>
+		</form>
+    </div>
+	</div>
+	<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function($, modal) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: $.mage.__('Gift Product Details'),
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: 'modal-close',
+                    click: function (){
+                        this.closeModal();
+                    }
+                	}]
+            };
+
+            modal(options, $('#modal-content'));
+            $("#modal-btn").on('click',function(){
+                $("#modal-content").modal("openModal");
+            });
+            $("#print-submit").on('click',function(){
+                $("#modal-content").modal("closeModal");
+            });
+        }
+    );
+</script>
+	
+<?php } ?>

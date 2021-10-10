@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu> 
+		<add id="Applab_Subscription::subscription" title="Subscription" module="Applab_Subscription" sortOrder="10" resource="Applab_Subscription::subscription" />  
+		<add id="Applab_Subscription::orders" title="Subscription Orders" module="Applab_Subscription" sortOrder="5" resource="Applab_Subscription::orders" parent="Applab_Subscription::subscription" /> 
+		<add id="Applab_Subscription::order_list" title="Order List" module="Applab_Subscription" sortOrder="20" parent="Applab_Subscription::orders" action="subscriptions/index/index" resource="Applab_Subscription::order_list"/>
+	</menu>
+</config>
