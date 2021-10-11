@@ -17,7 +17,10 @@
         "magento/composer-root-update-plugin": "~1.1",
         "magento/product-community-edition": "2.4.3",
         "magepal/magento2-gmailsmtpapp": "^2.8",
-        "mageplaza/module-banner-slider": "^4.0"
+        "mageplaza/module-banner-slider": "^4.0",
+        "vnecoms/module-core": "2.4.0",
+        "vnecoms/module-sms": "2.4.0",
+        "vnecoms/module-sms-ooredoo": "2.0.0"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -71,12 +74,16 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "repositories": [
-        {
+    "repositories": {
+        "vnecoms-repo": {
+            "type": "composer",
+            "url": "https://repo.vnecoms.com"
+        },
+        "0": {
             "type": "composer",
             "url": "https://repo.magento.com/"
         }
-    ],
+    },
     "extra": {
         "magento-force": "override"
     }
