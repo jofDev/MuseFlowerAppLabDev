@@ -1,0 +1,32 @@
+type Query {
+    getHomePageData(store_id: Int! @doc(description: "Specify the id of the store.")): getHomePageDataOutPut @resolver( class: "Applab\\HomePage\\Model\\Resolver\\HomePageData") @doc(description: "Get HomePage by store id")
+}
+
+type getHomePageDataOutPut {
+    banners: [bannerDetails],
+    designers: [designersDetails],
+    occassional: [occassionalDetails],
+    featured: [featuredDetails]
+}
+
+type bannerDetails {
+    name: String @doc(description: "banner name"),
+    image: String @doc(description: "banner image"),
+    status: String @doc(description: "banner status")
+}
+
+type designersDetails {
+    name: String @doc(description: "designer name"),
+    name_ar: String @doc(description: "designer arabic name"),
+    image: String @doc(description: "designer image"),
+    status: String @doc(description: "designer status")
+}
+
+type occassionalDetails {
+    name: String @doc(description: "occassional name"),
+    image: String @doc(description: "occassional image")
+}
+type featuredDetails {
+    name: String @doc(description: "featured product name"),
+    image: String @doc(description: "featured product image")
+}
