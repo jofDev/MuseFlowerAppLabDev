@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9993542693915b27478fdc6cf0e80a8e",
+    "content-hash": "0d44420cc94135106c50dceabd4b9fc4",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -2032,6 +2032,63 @@
                 "source": "https://github.com/fgrosse/PHPASN1/tree/v2.3.0"
             },
             "time": "2021-04-24T19:01:55+00:00"
+        },
+        {
+            "name": "geoip2/geoip2",
+            "version": "v2.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxmind/GeoIP2-php.git",
+                "reference": "d01be5894a5c1a3381c58c9b1795cd07f96c30f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxmind/GeoIP2-php/zipball/d01be5894a5c1a3381c58c9b1795cd07f96c30f7",
+                "reference": "d01be5894a5c1a3381c58c9b1795cd07f96c30f7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "maxmind-db/reader": "~1.8",
+                "maxmind/web-service-common": "~0.8",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.*",
+                "phpunit/phpunit": "^8.0 || ^9.0",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeoIp2\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gregory J. Oschwald",
+                    "email": "goschwald@maxmind.com",
+                    "homepage": "https://www.maxmind.com/"
+                }
+            ],
+            "description": "MaxMind GeoIP2 PHP API",
+            "homepage": "https://github.com/maxmind/GeoIP2-php",
+            "keywords": [
+                "IP",
+                "geoip",
+                "geoip2",
+                "geolocation",
+                "maxmind"
+            ],
+            "support": {
+                "issues": "https://github.com/maxmind/GeoIP2-php/issues",
+                "source": "https://github.com/maxmind/GeoIP2-php/tree/v2.11.0"
+            },
+            "time": "2020-10-01T18:48:34+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -17610,6 +17667,121 @@
             "time": "2021-07-21T06:58:49+00:00"
         },
         {
+            "name": "maxmind-db/reader",
+            "version": "v1.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
+                "reference": "569bd44d97d30a4ec12c7793a33004a76d4caf18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/569bd44d97d30a4ec12c7793a33004a76d4caf18",
+                "reference": "569bd44d97d30a4ec12c7793a33004a76d4caf18",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "conflict": {
+                "ext-maxminddb": "<1.10.1,>=2.0.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "*",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpstan/phpstan": "*",
+                "phpunit/phpcov": ">=6.0.0",
+                "phpunit/phpunit": ">=8.0.0,<10.0.0",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "suggest": {
+                "ext-bcmath": "bcmath or gmp is required for decoding larger integers with the pure PHP decoder",
+                "ext-gmp": "bcmath or gmp is required for decoding larger integers with the pure PHP decoder",
+                "ext-maxminddb": "A C-based database decoder that provides significantly faster lookups"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MaxMind\\Db\\": "src/MaxMind/Db"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gregory J. Oschwald",
+                    "email": "goschwald@maxmind.com",
+                    "homepage": "https://www.maxmind.com/"
+                }
+            ],
+            "description": "MaxMind DB Reader API",
+            "homepage": "https://github.com/maxmind/MaxMind-DB-Reader-php",
+            "keywords": [
+                "database",
+                "geoip",
+                "geoip2",
+                "geolocation",
+                "maxmind"
+            ],
+            "support": {
+                "issues": "https://github.com/maxmind/MaxMind-DB-Reader-php/issues",
+                "source": "https://github.com/maxmind/MaxMind-DB-Reader-php/tree/v1.10.1"
+            },
+            "time": "2021-04-14T17:49:35+00:00"
+        },
+        {
+            "name": "maxmind/web-service-common",
+            "version": "v0.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxmind/web-service-common-php.git",
+                "reference": "32f274051c543fc865e5a84d3a2c703913641ea8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxmind/web-service-common-php/zipball/32f274051c543fc865e5a84d3a2c703913641ea8",
+                "reference": "32f274051c543fc865e5a84d3a2c703913641ea8",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0.3",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.*",
+                "phpunit/phpunit": "^8.0 || ^9.0",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MaxMind\\Exception\\": "src/Exception",
+                    "MaxMind\\WebService\\": "src/WebService"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gregory Oschwald",
+                    "email": "goschwald@maxmind.com"
+                }
+            ],
+            "description": "Internal MaxMind Web Service API",
+            "homepage": "https://github.com/maxmind/web-service-common-php",
+            "support": {
+                "issues": "https://github.com/maxmind/web-service-common-php/issues",
+                "source": "https://github.com/maxmind/web-service-common-php/tree/v0.8.1"
+            },
+            "time": "2020-11-02T17:00:53+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.26.1",
             "source": {
@@ -22506,6 +22678,107 @@
                 "proprietary"
             ],
             "description": "Tools for communicating with Vertex Cloud and Vertex O-Series"
+        },
+        {
+            "name": "vnecoms/module-core",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://vnecoms@bitbucket.org/vnecoms/module-core.git",
+                "reference": "18ceca118aeffafaadd17c45a99641c4cd4dffc9"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://repo.vnecoms.com/dist/vnecoms/module-core/vnecoms-module-core-2.4.0-6193fe.tar",
+                "reference": "18ceca118aeffafaadd17c45a99641c4cd4dffc9",
+                "shasum": "55531c50dc26177138ecff78f71476bce0fcedf9"
+            },
+            "require": {
+                "magento/framework": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Vnecoms\\Core\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "VNECOMS",
+                    "email": "support@vnecoms.com"
+                }
+            ],
+            "description": "N/A",
+            "time": "2021-01-05T04:39:13+00:00"
+        },
+        {
+            "name": "vnecoms/module-sms",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://vnecoms@bitbucket.org/vnecoms/module-sms.git",
+                "reference": "5593f481e5ca967800a43eb41b9c233ef3570f66"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://repo.vnecoms.com/dist/vnecoms/module-sms/vnecoms-module-sms-2.4.0-75749b.tar",
+                "reference": "5593f481e5ca967800a43eb41b9c233ef3570f66",
+                "shasum": "f7f83e29c962c67282dc95a13d630eb5d42c65c9"
+            },
+            "require": {
+                "geoip2/geoip2": "~2.0",
+                "vnecoms/module-core": "2.4.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Vnecoms\\Sms\\": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "VNECOMS",
+                    "email": "support@vnecoms.com"
+                }
+            ],
+            "description": "SMS notification extension allows the customer and website admin to receive the SMS notification for each of action configured in extension setting, besides the OTP generator is added for verifying the customer's mobile number",
+            "time": "2021-01-05T09:07:26+00:00"
+        },
+        {
+            "name": "vnecoms/module-sms-ooredoo",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://vnecoms@bitbucket.org/vnecoms/module-sms-ooredoo.git",
+                "reference": "5ff88cfbbc09c3dffffe4cdff26ca07cef94b7d4"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://repo.vnecoms.com/dist/vnecoms/module-sms-ooredoo/vnecoms-module-sms-ooredoo-2.0.0-5e6c0f.tar",
+                "reference": "5ff88cfbbc09c3dffffe4cdff26ca07cef94b7d4",
+                "shasum": "e378921d29275d7bfa4ec9e6e870906cf163e417"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Vnecoms\\SmsOoredoo\\": ""
+                }
+            },
+            "description": "Integrate the www.ooredoo.qa to SMS notification extension.",
+            "time": "2019-05-14T03:32:32+00:00"
         },
         {
             "name": "web-token/jwt-framework",
