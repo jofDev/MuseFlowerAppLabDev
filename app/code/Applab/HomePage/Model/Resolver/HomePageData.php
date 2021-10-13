@@ -121,8 +121,8 @@ class HomePageData implements ResolverInterface
                 foreach ($categoryCol as $category) {
                     $catImage  = $placeholderImage ;
                     if($category->getImage()){
-                        $url = explode("/", $category->getImage(), 4);
-                        $catImage  = isset($url[3]) ? $mediaUrl.$url[3] : '';
+                        $url = explode("/", $category->getImage(), 3);
+                        $catImage  = isset($url[2]) ? $mediaUrl.$url[2] : '';
                     } 
                     $occassional[] = ['name' => $category->getName(), 'image' => $catImage];
                 }
