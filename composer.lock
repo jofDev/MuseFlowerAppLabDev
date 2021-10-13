@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d44420cc94135106c50dceabd4b9fc4",
+    "content-hash": "8145b8ae4f5da0df99f2c5d9d9b91b9c",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -334,16 +334,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.198.2",
+            "version": "3.198.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "991117f98cedd7939e84d594577ac8aa85a4ebaf"
+                "reference": "0b632d5cf162d5c67da8950d339c13e97135a45b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/991117f98cedd7939e84d594577ac8aa85a4ebaf",
-                "reference": "991117f98cedd7939e84d594577ac8aa85a4ebaf",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0b632d5cf162d5c67da8950d339c13e97135a45b",
+                "reference": "0b632d5cf162d5c67da8950d339c13e97135a45b",
                 "shasum": ""
             },
             "require": {
@@ -419,9 +419,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.3"
             },
-            "time": "2021-10-11T18:13:37+00:00"
+            "time": "2021-10-12T18:15:14+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -3591,16 +3591,16 @@
         },
         {
             "name": "laminas/laminas-i18n",
-            "version": "2.11.2",
+            "version": "2.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-i18n.git",
-                "reference": "78adb53ebf6c0bc63f92273fd7809dabc554f786"
+                "reference": "563b1b720ee53f2748473656a250d65911fc4462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-i18n/zipball/78adb53ebf6c0bc63f92273fd7809dabc554f786",
-                "reference": "78adb53ebf6c0bc63f92273fd7809dabc554f786",
+                "url": "https://api.github.com/repos/laminas/laminas-i18n/zipball/563b1b720ee53f2748473656a250d65911fc4462",
+                "reference": "563b1b720ee53f2748473656a250d65911fc4462",
                 "shasum": ""
             },
             "require": {
@@ -3627,12 +3627,12 @@
                 "phpunit/phpunit": "^9.3"
             },
             "suggest": {
-                "laminas/laminas-cache": "Laminas\\Cache component",
-                "laminas/laminas-config": "Laminas\\Config component",
+                "laminas/laminas-cache": "You should install this package to cache the translations",
+                "laminas/laminas-config": "You should install this package to use the INI translation format",
                 "laminas/laminas-eventmanager": "You should install this package to use the events in the translator",
                 "laminas/laminas-filter": "You should install this package to use the provided filters",
-                "laminas/laminas-i18n-resources": "Translation resources",
-                "laminas/laminas-servicemanager": "Laminas\\ServiceManager component",
+                "laminas/laminas-i18n-resources": "This package provides validator and captcha translations",
+                "laminas/laminas-servicemanager": "You should install this package to use the translator",
                 "laminas/laminas-validator": "You should install this package to use the provided validators",
                 "laminas/laminas-view": "You should install this package to use the provided view helpers"
             },
@@ -3672,7 +3672,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-08-20T08:23:04+00:00"
+            "time": "2021-10-13T08:07:28+00:00"
         },
         {
             "name": "laminas/laminas-json",
@@ -4792,16 +4792,16 @@
         },
         {
             "name": "laminas/laminas-view",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-view.git",
-                "reference": "3ef103da6887809f08ecf52f42c31a76c9bf08b1"
+                "reference": "23fc886670e05d3fae34d3ba2c5089e2d29beb03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-view/zipball/3ef103da6887809f08ecf52f42c31a76c9bf08b1",
-                "reference": "3ef103da6887809f08ecf52f42c31a76c9bf08b1",
+                "url": "https://api.github.com/repos/laminas/laminas-view/zipball/23fc886670e05d3fae34d3ba2c5089e2d29beb03",
+                "reference": "23fc886670e05d3fae34d3ba2c5089e2d29beb03",
                 "shasum": ""
             },
             "require": {
@@ -4813,6 +4813,7 @@
                 "php": "^7.3 || ~8.0.0"
             },
             "conflict": {
+                "laminas/laminas-router": "<3.0.1",
                 "laminas/laminas-servicemanager": "<3.3"
             },
             "replace": {
@@ -4832,7 +4833,9 @@
                 "laminas/laminas-log": "^2.7",
                 "laminas/laminas-modulemanager": "^2.7.1",
                 "laminas/laminas-mvc": "^2.7.14 || ^3.0",
-                "laminas/laminas-navigation": "^2.5",
+                "laminas/laminas-mvc-i18n": "^1.1",
+                "laminas/laminas-mvc-plugin-flashmessenger": "^1.2",
+                "laminas/laminas-navigation": "^2.8.1",
                 "laminas/laminas-paginator": "^2.5",
                 "laminas/laminas-permissions-acl": "^2.6",
                 "laminas/laminas-router": "^3.0.1",
@@ -4892,7 +4895,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-01-01T14:07:41+00:00"
+            "time": "2021-10-12T16:49:06+00:00"
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
@@ -22645,11 +22648,11 @@
         },
         {
             "name": "vertexinc/sdk",
-            "version": "1.2.7",
+            "version": "1.2.8",
             "dist": {
                 "type": "zip",
-                "url": "https://repo.magento.com/archives/vertexinc/sdk/vertexinc-sdk-1.2.7.0.zip",
-                "shasum": "9c12157aa8d42ef9efa21e3665de2d8dcc87d830"
+                "url": "https://repo.magento.com/archives/vertexinc/sdk/vertexinc-sdk-1.2.8.0.zip",
+                "shasum": "e685ea9ef102c2b4a6c57bf4f751ddf6fd1a2f5f"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -22720,21 +22723,22 @@
         },
         {
             "name": "vnecoms/module-sms",
-            "version": "2.4.0",
+            "version": "2.4.7",
             "source": {
                 "type": "git",
                 "url": "https://vnecoms@bitbucket.org/vnecoms/module-sms.git",
-                "reference": "5593f481e5ca967800a43eb41b9c233ef3570f66"
+                "reference": "4c547e31f7dcb7ac2faf7facf9801104b9d051a8"
             },
             "dist": {
                 "type": "tar",
-                "url": "https://repo.vnecoms.com/dist/vnecoms/module-sms/vnecoms-module-sms-2.4.0-75749b.tar",
-                "reference": "5593f481e5ca967800a43eb41b9c233ef3570f66",
-                "shasum": "f7f83e29c962c67282dc95a13d630eb5d42c65c9"
+                "url": "https://repo.vnecoms.com/dist/vnecoms/module-sms/vnecoms-module-sms-2.4.7-65c105.tar",
+                "reference": "4c547e31f7dcb7ac2faf7facf9801104b9d051a8",
+                "shasum": "929afb90bfe0b6083ba10c76812b0db95e65e77b"
             },
             "require": {
                 "geoip2/geoip2": "~2.0",
-                "vnecoms/module-core": "2.4.*"
+                "vnecoms/module-core": "2.4.*",
+                "vnecoms/module-sms-graphql": "2.4.*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -22752,7 +22756,37 @@
                 }
             ],
             "description": "SMS notification extension allows the customer and website admin to receive the SMS notification for each of action configured in extension setting, besides the OTP generator is added for verifying the customer's mobile number",
-            "time": "2021-01-05T09:07:26+00:00"
+            "time": "2021-10-09T13:07:26+00:00"
+        },
+        {
+            "name": "vnecoms/module-sms-graphql",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://vnecoms@bitbucket.org/vnecoms/module-sms-graphql.git",
+                "reference": "bc91ea50923c2a2a5836b9e17ac51c1996bf5f5e"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://repo.vnecoms.com/dist/vnecoms/module-sms-graphql/vnecoms-module-sms-graphql-2.4.0-5ca2fb.tar",
+                "reference": "bc91ea50923c2a2a5836b9e17ac51c1996bf5f5e",
+                "shasum": "f89653953910087fb346129cbd303bcd99206ce0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Vnecoms\\SmsGraphQl\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "N/A",
+            "time": "2021-10-09T13:21:45+00:00"
         },
         {
             "name": "vnecoms/module-sms-ooredoo",
@@ -23445,25 +23479,24 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.8.0",
+            "version": "v4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "2391482cd003dfdc36b679b27e9f5326bd656acd"
+                "reference": "0bc8d1e30e96183e4f36db9dc79caead300beff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/2391482cd003dfdc36b679b27e9f5326bd656acd",
-                "reference": "2391482cd003dfdc36b679b27e9f5326bd656acd",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/0bc8d1e30e96183e4f36db9dc79caead300beff4",
+                "reference": "0bc8d1e30e96183e4f36db9dc79caead300beff4",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.2|~8.0"
             },
             "require-dev": {
-                "cucumber/cucumber": "dev-gherkin-16.0.0",
+                "cucumber/cucumber": "dev-gherkin-22.0.0",
                 "phpunit/phpunit": "~8|~9",
-                "symfony/phpunit-bridge": "~3|~4|~5",
                 "symfony/yaml": "~3|~4|~5"
             },
             "suggest": {
@@ -23472,7 +23505,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -23503,9 +23536,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.8.0"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.9.0"
             },
-            "time": "2021-02-04T12:44:21+00:00"
+            "time": "2021-10-12T13:05:09+00:00"
         },
         {
             "name": "codeception/codeception",
