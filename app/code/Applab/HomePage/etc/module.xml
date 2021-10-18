@@ -1,0 +1,12 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
+    <module name="Applab_HomePage" setup_version="1.0.0">
+    	<sequence>
+    		<module name="Mageplaza_BannerSlider"/>
+    		<module name="Applab_Adminsettings"/>
+    		<module name="Applab_Brand"/>
+    		<module name="Ves_Brand"/>
+	    	<module name="Magento_GraphQl"/>
+	        <module name="Magento_Backend"/>
+	    </sequence>
+    </module>
+</config>
