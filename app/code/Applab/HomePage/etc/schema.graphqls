@@ -6,7 +6,9 @@ type getHomePageDataOutPut {
     banners: [bannerDetails],
     designers: [designersDetails],
     occassional: [occassionalDetails],
-    featured: [featuredDetails]
+    featured: [featuredDetails],
+    gift: [giftDetails],
+    vip: [vipDetails]
 }
 
 type bannerDetails {
@@ -26,7 +28,19 @@ type occassionalDetails {
     name: String @doc(description: "occassional name"),
     image: String @doc(description: "occassional image")
 }
+
 type featuredDetails {
     name: String @doc(description: "featured product name"),
     image: String @doc(description: "featured product image")
+}
+
+type giftDetails {
+    name: String @doc(description: "gift product name"),
+    image: String @doc(description: "gift product image")
+}
+
+type vipDetails {
+    name: String @doc(description: "vip name"),
+    logo: String @doc(description: "vip logo"),
+    gallery: [String] @doc(description: "Array of photos")
 }
