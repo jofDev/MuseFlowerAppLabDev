@@ -20,6 +20,7 @@
         "mageplaza/module-banner-slider": "^4.0",
         "vnecoms/module-core": "2.4.0",
         "vnecoms/module-sms": "2.4.0",
+        "vnecoms/module-sms-graphql": "2.4.1",
         "vnecoms/module-sms-ooredoo": "2.0.0"
     },
     "autoload": {

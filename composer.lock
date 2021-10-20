@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d44420cc94135106c50dceabd4b9fc4",
+    "content-hash": "ef62657b1215e2292e157e54ec0aa2d2",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -334,16 +334,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.198.1",
+            "version": "3.198.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "79bf3298bd2893eb0b4614c2463e9f675d07118b"
+                "reference": "40197a954c9f49557a1b0d49e2a9bd6f7bf6adfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/79bf3298bd2893eb0b4614c2463e9f675d07118b",
-                "reference": "79bf3298bd2893eb0b4614c2463e9f675d07118b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/40197a954c9f49557a1b0d49e2a9bd6f7bf6adfc",
+                "reference": "40197a954c9f49557a1b0d49e2a9bd6f7bf6adfc",
                 "shasum": ""
             },
             "require": {
@@ -419,9 +419,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.7"
             },
-            "time": "2021-10-08T18:28:30+00:00"
+            "time": "2021-10-18T18:17:12+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -3591,16 +3591,16 @@
         },
         {
             "name": "laminas/laminas-i18n",
-            "version": "2.11.2",
+            "version": "2.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-i18n.git",
-                "reference": "78adb53ebf6c0bc63f92273fd7809dabc554f786"
+                "reference": "563b1b720ee53f2748473656a250d65911fc4462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-i18n/zipball/78adb53ebf6c0bc63f92273fd7809dabc554f786",
-                "reference": "78adb53ebf6c0bc63f92273fd7809dabc554f786",
+                "url": "https://api.github.com/repos/laminas/laminas-i18n/zipball/563b1b720ee53f2748473656a250d65911fc4462",
+                "reference": "563b1b720ee53f2748473656a250d65911fc4462",
                 "shasum": ""
             },
             "require": {
@@ -3627,12 +3627,12 @@
                 "phpunit/phpunit": "^9.3"
             },
             "suggest": {
-                "laminas/laminas-cache": "Laminas\\Cache component",
-                "laminas/laminas-config": "Laminas\\Config component",
+                "laminas/laminas-cache": "You should install this package to cache the translations",
+                "laminas/laminas-config": "You should install this package to use the INI translation format",
                 "laminas/laminas-eventmanager": "You should install this package to use the events in the translator",
                 "laminas/laminas-filter": "You should install this package to use the provided filters",
-                "laminas/laminas-i18n-resources": "Translation resources",
-                "laminas/laminas-servicemanager": "Laminas\\ServiceManager component",
+                "laminas/laminas-i18n-resources": "This package provides validator and captcha translations",
+                "laminas/laminas-servicemanager": "You should install this package to use the translator",
                 "laminas/laminas-validator": "You should install this package to use the provided validators",
                 "laminas/laminas-view": "You should install this package to use the provided view helpers"
             },
@@ -3672,7 +3672,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-08-20T08:23:04+00:00"
+            "time": "2021-10-13T08:07:28+00:00"
         },
         {
             "name": "laminas/laminas-json",
@@ -4002,38 +4002,35 @@
         },
         {
             "name": "laminas/laminas-modulemanager",
-            "version": "2.10.2",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-modulemanager.git",
-                "reference": "2068e0b300e87e139112016a6025be341ceaaf33"
+                "reference": "6acf5991d10b0b38a2edb08729ed48981b2a5dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-modulemanager/zipball/2068e0b300e87e139112016a6025be341ceaaf33",
-                "reference": "2068e0b300e87e139112016a6025be341ceaaf33",
+                "url": "https://api.github.com/repos/laminas/laminas-modulemanager/zipball/6acf5991d10b0b38a2edb08729ed48981b2a5dad",
+                "reference": "6acf5991d10b0b38a2edb08729ed48981b2a5dad",
                 "shasum": ""
             },
             "require": {
                 "brick/varexporter": "^0.3.2",
-                "laminas/laminas-config": "^3.4",
-                "laminas/laminas-eventmanager": "^3.3",
-                "laminas/laminas-stdlib": "^3.3",
-                "laminas/laminas-zendframework-bridge": "^1.1",
-                "php": "^7.3 || ^8.0",
+                "laminas/laminas-config": "^3.7",
+                "laminas/laminas-eventmanager": "^3.4",
+                "laminas/laminas-stdlib": "^3.6",
+                "php": "^7.3 || ~8.0.0 || ~8.1.0",
                 "webimpress/safe-writer": "^1.0.2 || ^2.1"
             },
-            "replace": {
-                "zendframework/zend-modulemanager": "^2.8.4"
+            "conflict": {
+                "zendframework/zend-modulemanager": "*"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~1.0.0",
-                "laminas/laminas-console": "^2.8",
-                "laminas/laminas-di": "^2.6.1",
-                "laminas/laminas-loader": "^2.6.1",
+                "laminas/laminas-coding-standard": "^2.3",
+                "laminas/laminas-loader": "^2.8",
                 "laminas/laminas-mvc": "^3.1.1",
-                "laminas/laminas-servicemanager": "^3.4.1",
-                "phpunit/phpunit": "^9.3.7"
+                "laminas/laminas-servicemanager": "^3.7",
+                "phpunit/phpunit": "^9.5.5"
             },
             "suggest": {
                 "laminas/laminas-console": "Laminas\\Console component",
@@ -4071,7 +4068,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-04-13T20:11:28+00:00"
+            "time": "2021-10-13T17:05:17+00:00"
         },
         {
             "name": "laminas/laminas-mvc",
@@ -4792,16 +4789,16 @@
         },
         {
             "name": "laminas/laminas-view",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-view.git",
-                "reference": "3ef103da6887809f08ecf52f42c31a76c9bf08b1"
+                "reference": "23fc886670e05d3fae34d3ba2c5089e2d29beb03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-view/zipball/3ef103da6887809f08ecf52f42c31a76c9bf08b1",
-                "reference": "3ef103da6887809f08ecf52f42c31a76c9bf08b1",
+                "url": "https://api.github.com/repos/laminas/laminas-view/zipball/23fc886670e05d3fae34d3ba2c5089e2d29beb03",
+                "reference": "23fc886670e05d3fae34d3ba2c5089e2d29beb03",
                 "shasum": ""
             },
             "require": {
@@ -4813,6 +4810,7 @@
                 "php": "^7.3 || ~8.0.0"
             },
             "conflict": {
+                "laminas/laminas-router": "<3.0.1",
                 "laminas/laminas-servicemanager": "<3.3"
             },
             "replace": {
@@ -4832,7 +4830,9 @@
                 "laminas/laminas-log": "^2.7",
                 "laminas/laminas-modulemanager": "^2.7.1",
                 "laminas/laminas-mvc": "^2.7.14 || ^3.0",
-                "laminas/laminas-navigation": "^2.5",
+                "laminas/laminas-mvc-i18n": "^1.1",
+                "laminas/laminas-mvc-plugin-flashmessenger": "^1.2",
+                "laminas/laminas-navigation": "^2.8.1",
                 "laminas/laminas-paginator": "^2.5",
                 "laminas/laminas-permissions-acl": "^2.6",
                 "laminas/laminas-router": "^3.0.1",
@@ -4892,7 +4892,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-01-01T14:07:41+00:00"
+            "time": "2021-10-12T16:49:06+00:00"
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
@@ -17668,16 +17668,16 @@
         },
         {
             "name": "maxmind-db/reader",
-            "version": "v1.10.1",
+            "version": "v1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
-                "reference": "569bd44d97d30a4ec12c7793a33004a76d4caf18"
+                "reference": "b1f3c0699525336d09cc5161a2861268d9f2ae5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/569bd44d97d30a4ec12c7793a33004a76d4caf18",
-                "reference": "569bd44d97d30a4ec12c7793a33004a76d4caf18",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/b1f3c0699525336d09cc5161a2861268d9f2ae5b",
+                "reference": "b1f3c0699525336d09cc5161a2861268d9f2ae5b",
                 "shasum": ""
             },
             "require": {
@@ -17687,7 +17687,7 @@
                 "ext-maxminddb": "<1.10.1,>=2.0.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "*",
+                "friendsofphp/php-cs-fixer": "3.*",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpstan/phpstan": "*",
                 "phpunit/phpcov": ">=6.0.0",
@@ -17727,9 +17727,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maxmind/MaxMind-DB-Reader-php/issues",
-                "source": "https://github.com/maxmind/MaxMind-DB-Reader-php/tree/v1.10.1"
+                "source": "https://github.com/maxmind/MaxMind-DB-Reader-php/tree/v1.11.0"
             },
-            "time": "2021-04-14T17:49:35+00:00"
+            "time": "2021-10-18T15:23:10+00:00"
         },
         {
             "name": "maxmind/web-service-common",
@@ -22645,11 +22645,11 @@
         },
         {
             "name": "vertexinc/sdk",
-            "version": "1.2.7",
+            "version": "1.2.8",
             "dist": {
                 "type": "zip",
-                "url": "https://repo.magento.com/archives/vertexinc/sdk/vertexinc-sdk-1.2.7.0.zip",
-                "shasum": "9c12157aa8d42ef9efa21e3665de2d8dcc87d830"
+                "url": "https://repo.magento.com/archives/vertexinc/sdk/vertexinc-sdk-1.2.8.0.zip",
+                "shasum": "e685ea9ef102c2b4a6c57bf4f751ddf6fd1a2f5f"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -22753,6 +22753,36 @@
             ],
             "description": "SMS notification extension allows the customer and website admin to receive the SMS notification for each of action configured in extension setting, besides the OTP generator is added for verifying the customer's mobile number",
             "time": "2021-01-05T09:07:26+00:00"
+        },
+        {
+            "name": "vnecoms/module-sms-graphql",
+            "version": "2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://vnecoms@bitbucket.org/vnecoms/module-sms-graphql.git",
+                "reference": "1817c2d10a4504cda52b2b8803efcf293a9a5fb2"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://repo.vnecoms.com/dist/vnecoms/module-sms-graphql/vnecoms-module-sms-graphql-2.4.1-936b67.tar",
+                "reference": "1817c2d10a4504cda52b2b8803efcf293a9a5fb2",
+                "shasum": "7538be9075e148bcad576c458bc3cfb825609bcc"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Vnecoms\\SmsGraphQl\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "N/A",
+            "time": "2021-10-19T09:49:46+00:00"
         },
         {
             "name": "vnecoms/module-sms-ooredoo",
@@ -23445,25 +23475,24 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.8.0",
+            "version": "v4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "2391482cd003dfdc36b679b27e9f5326bd656acd"
+                "reference": "0bc8d1e30e96183e4f36db9dc79caead300beff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/2391482cd003dfdc36b679b27e9f5326bd656acd",
-                "reference": "2391482cd003dfdc36b679b27e9f5326bd656acd",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/0bc8d1e30e96183e4f36db9dc79caead300beff4",
+                "reference": "0bc8d1e30e96183e4f36db9dc79caead300beff4",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.2|~8.0"
             },
             "require-dev": {
-                "cucumber/cucumber": "dev-gherkin-16.0.0",
+                "cucumber/cucumber": "dev-gherkin-22.0.0",
                 "phpunit/phpunit": "~8|~9",
-                "symfony/phpunit-bridge": "~3|~4|~5",
                 "symfony/yaml": "~3|~4|~5"
             },
             "suggest": {
@@ -23472,7 +23501,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -23503,9 +23532,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.8.0"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.9.0"
             },
-            "time": "2021-02-04T12:44:21+00:00"
+            "time": "2021-10-12T13:05:09+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -25093,16 +25122,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "3.14.0",
+            "version": "3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "bf371f55d8137fec4ff096bd45ff19e2db02ac4c"
+                "reference": "9d6d9b81889904603383722ca0cd7f7999baeebc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/bf371f55d8137fec4ff096bd45ff19e2db02ac4c",
-                "reference": "bf371f55d8137fec4ff096bd45ff19e2db02ac4c",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/9d6d9b81889904603383722ca0cd7f7999baeebc",
+                "reference": "9d6d9b81889904603383722ca0cd7f7999baeebc",
                 "shasum": ""
             },
             "require": {
@@ -25111,7 +25140,7 @@
                 "doctrine/lexer": "^1.1",
                 "jms/metadata": "^2.0",
                 "php": "^7.2||^8.0",
-                "phpstan/phpdoc-parser": "^0.4 || ^0.5"
+                "phpstan/phpdoc-parser": "^0.4 || ^0.5 || ^1.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^8.1",
@@ -25124,13 +25153,13 @@
                 "phpstan/phpstan": "^0.12.65",
                 "phpunit/phpunit": "^8.0||^9.0",
                 "psr/container": "^1.0",
-                "symfony/dependency-injection": "^3.0|^4.0|^5.0",
-                "symfony/expression-language": "^3.0|^4.0|^5.0",
-                "symfony/filesystem": "^3.0|^4.0|^5.0",
-                "symfony/form": "^3.0|^4.0|^5.0",
-                "symfony/translation": "^3.0|^4.0|^5.0",
-                "symfony/validator": "^3.1.9|^4.0|^5.0",
-                "symfony/yaml": "^3.3|^4.0|^5.0",
+                "symfony/dependency-injection": "^3.0|^4.0|^5.0|^6.0",
+                "symfony/expression-language": "^3.0|^4.0|^5.0|^6.0",
+                "symfony/filesystem": "^3.0|^4.0|^5.0|^6.0",
+                "symfony/form": "^3.0|^4.0|^5.0|^6.0",
+                "symfony/translation": "^3.0|^4.0|^5.0|^6.0",
+                "symfony/validator": "^3.1.9|^4.0|^5.0|^6.0",
+                "symfony/yaml": "^3.3|^4.0|^5.0|^6.0",
                 "twig/twig": "~1.34|~2.4|^3.0"
             },
             "suggest": {
@@ -25141,7 +25170,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.14-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -25174,7 +25203,7 @@
             ],
             "support": {
                 "issues": "https://github.com/schmittjoh/serializer/issues",
-                "source": "https://github.com/schmittjoh/serializer/tree/3.14.0"
+                "source": "https://github.com/schmittjoh/serializer/tree/3.15.0"
             },
             "funding": [
                 {
@@ -25182,7 +25211,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-06T12:10:02+00:00"
+            "time": "2021-10-14T20:02:48+00:00"
         },
         {
             "name": "lusitanian/oauth",
@@ -26160,16 +26189,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "0.5.7",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "816e826ce0b7fb32098d8cb6de62511ce6021cea"
+                "reference": "dbc093d7af60eff5cd575d2ed761b15ed40bd08e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/816e826ce0b7fb32098d8cb6de62511ce6021cea",
-                "reference": "816e826ce0b7fb32098d8cb6de62511ce6021cea",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
+                "reference": "dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
                 "shasum": ""
             },
             "require": {
@@ -26178,15 +26207,15 @@
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.87",
-                "phpstan/phpstan-strict-rules": "^0.12.5",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
                 "phpunit/phpunit": "^9.5",
                 "symfony/process": "^5.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -26203,9 +26232,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/0.5.7"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.2.0"
             },
-            "time": "2021-09-12T11:52:00+00:00"
+            "time": "2021-09-16T20:46:02+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -27591,6 +27620,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
