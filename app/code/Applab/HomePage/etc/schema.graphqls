@@ -1,5 +1,13 @@
 type Query {
-    getHomePageData(store_id: Int! @doc(description: "Specify the id of the store.")): getHomePageDataOutPut @resolver( class: "Applab\\HomePage\\Model\\Resolver\\HomePageData") @doc(description: "Get HomePage by store id")
+    getHomePageData(
+    store_id: Int! @doc(description: "Specify the id of the store.")
+    banners: Int! @doc(description: "Specify if it is needed in result."),
+    designers: Int! @doc(description: "Specify if it is needed in result."),
+    occassional: Int! @doc(description: "Specify if it is needed in result."),
+    featured: Int! @doc(description: "Specify if it is needed in result."),
+    gift: Int! @doc(description: "Specify if it is needed in result."),
+    vip: Int! @doc(description: "Specify if it is needed in result.")
+    ): getHomePageDataOutPut @resolver( class: "Applab\\HomePage\\Model\\Resolver\\HomePageData") @doc(description: "Get HomePage by store id")
 }
 
 type getHomePageDataOutPut {
