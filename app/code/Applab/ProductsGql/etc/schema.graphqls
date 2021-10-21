@@ -1,0 +1,16 @@
+type Query {
+    getDeliveryData(store_id: Int! @doc(description: "Specify the id of the store.")): [getDeliveryDataOutPut] @resolver( class: "Applab\\ProductsGql\\Model\\Resolver\\DeliveryData") @doc(description: "Get Delivery by store id")
+}
+
+type getDeliveryDataOutPut {
+    id: String @doc(description: "The ID assigned to the value.")
+    value: String @doc(description: "The display name for this option.")
+}
+
+type getOptionValues{
+
+    id: String @doc(description: "The ID assigned to the value.")
+    value: String @doc(description: "The display name for this option.")
+}
+
+

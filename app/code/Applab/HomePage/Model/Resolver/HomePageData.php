@@ -127,26 +127,30 @@ class HomePageData implements ResolverInterface
                 }
             }
             // featured
-            if($args['featured'] == 1){
+            if($args['featured'] == 1 || $args['featured'] == '-1'){
                 $productCol = $this->productCollectionFactory->create();
-                $productCol->addAttributeToSelect('name')->addAttributeToSelect('image')
+                $productCol->addAttributeToSelect('*')
                            ->addAttributeToFilter('status',\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED)
                            ->addStoreFilter($storeId)
                            ->addAttributeToFilter('featured_product', '1');
-
+                if($args['featured'] == 1){           
+                    $productCol->getSelect()->orderRand()->limit(5);
+                } else {
+                    $productCol->getSelect()->orderRand();
+                }
                 if($productCol->getSize() > 0 ){
                     $proImage  = $placeholderImage ;
                     foreach ($productCol as $product) {
                         if($product->getImage()){
                              $proImage  = $mediaUrl.'catalog/product'.$product->getImage();
                         }
-                        $featured[] = ['name' => $product->getName(), 'image' => $proImage];
+                        $featured[] = ['name' => $product->getName(), 'sku' => $product->getSku(), 'image' => $proImage];
                     }
                 }
             }
 
             // gift 
-            if($args['gift'] == 1){
+            if($args['gift'] == 1 || $args['gift'] == '-1'){
                 $attribute_set_collection = $this->attrSetCollectionFactory->create();
                 $attribute_set_collection->addFieldToFilter('entity_type_id',4)->addFieldToFilter('attribute_set_name','Gift Product');
 
@@ -154,10 +158,16 @@ class HomePageData implements ResolverInterface
                     $att_set    = current($attribute_set_collection->getData()); 
                     $att_set_id = $att_set["attribute_set_id"];
                     $giftCol    = $this->productCollectionFactory->create();
-                    $giftCol->addAttributeToSelect('name')->addAttributeToSelect('image')
+                    $giftCol->addAttributeToSelect('*')
                             ->addAttributeToFilter('status',\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED)
                             ->addStoreFilter($storeId)
                             ->addFieldToFilter('attribute_set_id', $att_set_id);
+
+                    if($args['gift'] == 1){           
+                        $giftCol->getSelect()->orderRand()->limit(5);
+                    } else {
+                        $giftCol->getSelect()->orderRand();
+                    }
 
                     if($giftCol->getSize() > 0 ){
                         $giftproImage  = $placeholderImage ;
@@ -165,7 +175,7 @@ class HomePageData implements ResolverInterface
                             if($product->getImage()){
                                  $giftproImage  = $mediaUrl.'catalog/product'.$product->getImage();
                             }
-                            $gift[] = ['name' => $product->getName(), 'image' => $giftproImage];
+                            $gift[] = ['name' => $product->getName(), 'sku' => $product->getSku(), 'image' => $giftproImage];
                         }
                     }
                 }

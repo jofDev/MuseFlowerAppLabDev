@@ -38,11 +38,13 @@ type occassionalDetails {
 }
 
 type featuredDetails {
+    sku: String @doc(description: "featured product sku"),
     name: String @doc(description: "featured product name"),
     image: String @doc(description: "featured product image")
 }
 
 type giftDetails {
+    sku: String @doc(description: "featured product sku"),
     name: String @doc(description: "gift product name"),
     image: String @doc(description: "gift product image")
 }
