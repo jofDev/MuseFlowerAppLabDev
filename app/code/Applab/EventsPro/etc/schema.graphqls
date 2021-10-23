@@ -10,6 +10,31 @@ type getEventsDataOutPut {
     event_desc_ar : String  @doc(description: "Event desc Arabic String"),
     event_banner : String  @doc(description: "Event banner String"),
     event_banner_ar : String  @doc(description: "Event banner arabic String"),
+    start_date : String  @doc(description: "Event start date"),
+    end_date : String  @doc(description: "Event end date"),
     status : Int  @doc(description: "Status"),
     created_at : String  @doc(description: "Update Date")
+}
+
+type Mutation {
+    registrationFormSubmit(input: RegistrationInput!): registrationOutput @resolver(class: "Applab\\EventsPro\\Model\\Resolver\\EventRegistration") @doc(description:"Contact us form")
+}
+
+input RegistrationInput {
+    event_id : Int  @doc(description: "event_id"),
+    event_name : String  @doc(description: "First Name String"),
+    store_id : Int  @doc(description: "store_id"),
+    customer_id : Int  @doc(description: "customer_id"),
+    first_name : String  @doc(description: "First Name String"),
+    middle_name : String  @doc(description: "Middle Name String"),
+    last_name : String  @doc(description: "Last Name String"),
+    age : String  @doc(description: "age"),
+    phone : String  @doc(description: "phone"),
+    email : String  @doc(description: "email"),
+    gender : String  @doc(description: "gender")
+}
+
+type registrationOutput {
+    status: String @doc(description: "Status")
+    message: String @doc(description: "Message")
 }

@@ -62,13 +62,15 @@ class HomePageData implements ResolverInterface
         }
         try {
             $banners            = $designers = $occassional = $featured = $gift = $tmp = $vip = [];
-            if($args['banners'] == 1){
-                $storeId            = $args['store_id'];
-                $mediaUrl           = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA );
-                $placeholder        = $this->scopeConfig->getValue('catalog/placeholder/image_placeholder'); 
-                $placeholderImage   = $placeholder ? $mediaUrl.'catalog/product/placeholder/'.$placeholder : '';
-                $occasionalCategory = $this->scopeConfig->getValue('adminsettings_section/general/occasional_cat');
+            $storeId            = $args['store_id'];
+            $limit              = 10;
 
+            $mediaUrl           = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA );
+            $placeholder        = $this->scopeConfig->getValue('catalog/placeholder/image_placeholder'); 
+            $placeholderImage   = $placeholder ? $mediaUrl.'catalog/product/placeholder/'.$placeholder : '';
+            $occasionalCategory = $this->scopeConfig->getValue('adminsettings_section/general/occasional_cat');
+
+            if($args['banners'] == 1 || $args['banners'] == '-1'){
                 // banners
                 $sliderCol          = $this->sliderCollectionFactory->create();
                 $sliderCol->getSelect()->join(
@@ -81,6 +83,9 @@ class HomePageData implements ResolverInterface
                         'banner_slider.banner_id = slider_banner.banner_id AND slider_banner.status = 1',
                         ['name','image']
                 );
+                if($args['banners'] == 1){           
+                    $sliderCol->getSelect()->limit($limit);
+                } 
                 if(count($sliderCol->getData()) > 0 ){
                         foreach ($sliderCol->getData() as  $banner) {
                             $bannerImage =  $placeholderImage ;
@@ -92,13 +97,17 @@ class HomePageData implements ResolverInterface
                 }
             }
             // designers
-            if($args['designers'] == 1){
+            if($args['designers'] == 1 || $args['designers'] == '-1'){
                 $brandCol  = $this->brandFactory->create();
                 $brandCol->getSelect()->join(
                         ['brand_store' => $brandCol->getTable('ves_brand_store')],
                         'main_table.brand_id = brand_store.brand_id AND main_table.status = 1 AND brand_store.store_id ='.$storeId,
                         []
                 );
+                if($args['designers'] == 1){           
+                    $brandCol->getSelect()->limit($limit);
+                }
+
                 if(count($brandCol->getData()) > 0 ){
                     foreach ($brandCol->getData() as  $brand) {
                         $brandImage =  $placeholderImage ;
@@ -110,12 +119,17 @@ class HomePageData implements ResolverInterface
                 }
             }
             // occasional 
-            if($args['occassional'] == 1){
+            if($args['occassional'] == 1 || $args['occassional'] == '-1'){
                 $categoryIds = $occasionalCategory ? explode(",", $occasionalCategory) : [];
                 if(count($categoryIds) > 0 ){
                     $categoryCol = $this->categoryCollectionFactory->create();
                     $categoryCol->addAttributeToSelect('name')->addAttributeToSelect('image');
                     $categoryCol->addFieldToFilter('entity_id', ['IN' => $categoryIds])->setStoreId($storeId);
+
+                    if($args['occassional'] == 1){           
+                        $categoryCol->getSelect()->limit($limit);
+                    }
+
                     foreach ($categoryCol as $category) {
                         $catImage  = $placeholderImage ;
                         if($category->getImage()){
@@ -134,7 +148,7 @@ class HomePageData implements ResolverInterface
                            ->addStoreFilter($storeId)
                            ->addAttributeToFilter('featured_product', '1');
                 if($args['featured'] == 1){           
-                    $productCol->getSelect()->orderRand()->limit(5);
+                    $productCol->getSelect()->orderRand()->limit($limit);
                 } else {
                     $productCol->getSelect()->orderRand();
                 }
@@ -164,7 +178,7 @@ class HomePageData implements ResolverInterface
                             ->addFieldToFilter('attribute_set_id', $att_set_id);
 
                     if($args['gift'] == 1){           
-                        $giftCol->getSelect()->orderRand()->limit(5);
+                        $giftCol->getSelect()->orderRand()->limit($limit);
                     } else {
                         $giftCol->getSelect()->orderRand();
                     }
@@ -182,7 +196,7 @@ class HomePageData implements ResolverInterface
             }
 
             // VIP
-            if($args['vip'] == 1){
+            if($args['vip'] == 1 || $args['vip'] == '-1' ){
                 $galleryCol = $this->galleryCollectionFactory->create();
                 $galleryCol->getSelect()->join(
                         ['gallery_relation' => $galleryCol->getTable('decimadigital_photogallery_relation')],
@@ -193,7 +207,10 @@ class HomePageData implements ResolverInterface
                         ['gallery_photos' => $galleryCol->getTable('decimadigital_photogallery_photos')],
                         'gallery_relation.photo_id=gallery_photos.id AND gallery_photos.status = 1',
                         ['url','id']
-                );            
+                ); 
+                if($args['vip'] == 1){           
+                        $galleryCol->getSelect()->limit($limit);
+                }           
        
                 foreach($galleryCol->getData() as $data)
                 {

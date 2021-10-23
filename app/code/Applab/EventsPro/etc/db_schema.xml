@@ -11,6 +11,25 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/et
        <column xsi:type="varchar" name="event_banner_ar" nullable="true" length="255" comment="event banner"/>
        <column xsi:type="int" name="status" nullable="false" comment="status"/>
        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" comment="Created At"/>
+       <column xsi:type="timestamp" name="start_date" on_update="false" nullable="true" comment="Starts At"/>
+       <column xsi:type="timestamp" name="end_date" on_update="false" nullable="true" comment="Ends At"/>
+       <constraint xsi:type="primary" referenceId="PRIMARY">
+           <column name="id"/>
+       </constraint>
+   </table>
+   <table name="applab_eventspro_registration" resource="default" comment="Table to save all events registrations">
+       <column xsi:type="int" name="id" padding="10" identity="true" unsigned="true" nullable="false" comment="Id"/>
+       <column xsi:type="int" name="event_id" nullable="false" comment="event id"/>
+       <column xsi:type="varchar" name="event_name" nullable="true" length="255" comment="event name"/>
+       <column xsi:type="int" name="store_id" nullable="false" comment="store id"/>
+       <column xsi:type="int" name="customer_id" nullable="false" comment="customer id"/>
+       <column xsi:type="varchar" name="first_name" nullable="true" length="255" comment="first name"/>
+       <column xsi:type="varchar" name="middle_name" nullable="true" length="255" comment="middle name"/>
+       <column xsi:type="varchar" name="last_name" nullable="true" length="255" comment="last name"/>
+       <column xsi:type="varchar" name="age" nullable="true" length="255" comment="age"/>
+       <column xsi:type="varchar" name="phone" nullable="true" length="255" comment="phone"/>
+       <column xsi:type="varchar" name="email" nullable="true" length="255" comment="email"/>
+       <column xsi:type="varchar" name="gender" nullable="true" length="255" comment="gender"/>
        <constraint xsi:type="primary" referenceId="PRIMARY">
            <column name="id"/>
        </constraint>

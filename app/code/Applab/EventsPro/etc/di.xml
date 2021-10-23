@@ -13,4 +13,18 @@
             </argument>
         </arguments>
     </type>
+
+    <virtualType name="Applab\EventsPro\Model\ResourceModel\EventsProRegistration\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">applab_eventspro_registration</argument>
+            <argument name="resourceModel" xsi:type="string">Applab\EventsPro\Model\ResourceModel\EventsProRegistration</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="eventspro_registrations_data_source" xsi:type="string">Applab\EventsPro\Model\ResourceModel\EventsProRegistration\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -90,6 +90,8 @@ class Save extends \Magento\Backend\App\Action {
                 $eventsProDataUpdate->setEventNameAr($params['event_name_ar']);
                 $eventsProDataUpdate->setEventDesc($params['event_desc']);
                 $eventsProDataUpdate->setEventDescAr($params['event_desc_ar']);
+                $eventsProDataUpdate->setStartDate($params['start_date']);
+                $eventsProDataUpdate->setEndDate($params['end_date']);
                 $eventsProDataUpdate->setStatus($params['status']);
                 $eventsProDataUpdate->save();
                 $this->messageManager->addSuccess(__('The data has been saved.'));
@@ -111,6 +113,8 @@ class Save extends \Magento\Backend\App\Action {
             $eventsProData->setEventNameAr($params['event_name_ar']);
             $eventsProData->setEventDesc($params['event_desc']);
             $eventsProData->setEventDescAr($params['event_desc_ar']);
+            $eventsProData->setStartDate($params['start_date']);
+            $eventsProData->setEndDate($params['end_date']);
             $eventsProData->setStatus($params['status']);
             $eventsProData->setCreatedAt(date('y-m-d H:m:s'));
             $eventsProData->save();
